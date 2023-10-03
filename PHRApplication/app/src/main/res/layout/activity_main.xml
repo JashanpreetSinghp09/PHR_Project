@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Login Form -->
+        <LinearLayout
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Email Input -->
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="390dp"
+                android:layout_height="91dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <!-- Password Input -->
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="394dp"
+                android:layout_height="97dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <!-- Login Button -->
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login" />
+
+            <!-- Signup TextView -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Don't have an account? Sign up!"
+                android:layout_marginTop="16dp"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp"
+                android:id="@+id/signup_link" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="98dp"
+            android:layout_height="88dp"
+            android:layout_below="@+id/login_form"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="155dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="158dp"
+            android:layout_marginBottom="70dp" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
