@@ -6,4 +6,154 @@
     android:layout_height="match_parent"
     tools:context=".HomepageActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="99dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="40dp"
+        android:text="👋 Hello!"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="100dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="314dp"
+        android:text="FirstLast"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/SearchHomepage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <SearchView
+        android:id="@+id/SearchHomepage"
+        android:layout_width="381dp"
+        android:layout_height="64dp"
+        android:autofillHints="Search medical ..."
+        android:background="#2D21ECF3"
+        android:queryHint="Search medical ..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="69dp"
+        android:layout_height="54dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07"
+        app:srcCompat="@drawable/profileimg"
+        tools:srcCompat="@drawable/profileimg" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchHomepage"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="385dp"
+        android:layout_height="53dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SearchHomepage">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="67dp"
+            android:layout_height="match_parent"
+            android:background="#5E51EAFF"
+            app:srcCompat="@drawable/drimg"
+            tools:srcCompat="@drawable/drimg" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="71dp"
+            android:layout_height="54dp"
+            android:background="#6DFBAFAF"
+            app:srcCompat="@drawable/medimg"
+            tools:srcCompat="@drawable/medimg" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="93dp"
+            android:layout_height="54dp"
+            android:background="#6567BEFF"
+            app:srcCompat="@drawable/repimg"
+            tools:srcCompat="@drawable/repimg" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="113dp"
+            android:layout_height="54dp"
+            android:background="#79C3FF9E"
+            app:srcCompat="@drawable/virusimg"
+            tools:srcCompat="@drawable/virusimg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="477dp"
+        android:layout_height="228dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginBottom="380dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="274dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="147dp"
+                android:layout_height="wrap_content"
+                android:text="header" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="194dp"
+                android:layout_height="72dp"
+                android:text="body" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="173dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/nurseimg" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
