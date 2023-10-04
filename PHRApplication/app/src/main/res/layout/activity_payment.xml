@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".PaymentActivity">
+
+    <!-- Account Page -->
+    <LinearLayout
+        android:id="@+id/account_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Account Details -->
+        <TextView
+            android:id="@+id/account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account Name"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/account_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account Balance: $0.00"
+            android:textSize="16sp" />
+
+        <!-- Payment Options -->
+        <TextView
+            android:id="@+id/payment_options_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Options"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/payment_options_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- PayPal -->
+            <Button
+                android:id="@+id/paypal_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay with PayPal" />
+
+            <!-- Credit Card -->
+            <Button
+                android:id="@+id/credit_card_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay with Credit Card" />
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
