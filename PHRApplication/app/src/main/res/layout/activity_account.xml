@@ -4,31 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1C6BA4"
     android:padding="16dp">
 
     <!-- Back Button -->
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- User Profile Image -->
 
     <!-- User Name -->
 
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/white"
+        android:text="Back"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/profile_image"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="68dp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toEndOf="@+id/back_button"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,8 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="John Doe"
-        android:textSize="18sp"
+        android:text="John Smith"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/profile_image"
         app:layout_constraintStart_toStartOf="@+id/profile_image"
@@ -50,8 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="john.doe@example.com"
-        android:textSize="14sp"
+        android:text="john.s@example.com"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/user_name"
         app:layout_constraintStart_toStartOf="@+id/user_name"
         app:layout_constraintTop_toBottomOf="@+id/user_name" />
@@ -63,35 +69,45 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Date of Birth: 01/01/1980"
+        android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/user_email"
         app:layout_constraintStart_toStartOf="@+id/user_email"
         app:layout_constraintTop_toBottomOf="@+id/user_email" />
 
     <!-- Account Settings Button -->
+
+    <!-- Preferences Button -->
+
     <Button
         android:id="@+id/account_settings_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/white"
         android:text="Account Settings"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_dob"
+
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.7" />
 
-    <!-- Preferences Button -->
     <Button
         android:id="@+id/preferences_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Preferences"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_settings_button"
         app:layout_constraintWidth_default="percent"
+
         app:layout_constraintWidth_percent="0.7" />
 
     <!-- Payment Settings Button -->
@@ -101,6 +117,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Payment Settings"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/preferences_button"
@@ -108,26 +126,34 @@
         app:layout_constraintWidth_percent="0.7" />
 
     <!-- Policy Button -->
+
+    <!-- Sign Out Button -->
     <Button
         android:id="@+id/policy_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
         android:text="Policy"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/payment_settings_button"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.7" />
 
-    <!-- Sign Out Button -->
     <Button
         android:id="@+id/sign_out_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="129dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
         android:text="Sign Out"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/policy_button"
         app:layout_constraintWidth_default="percent"
