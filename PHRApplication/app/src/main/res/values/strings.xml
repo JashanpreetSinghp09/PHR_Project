@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PHR-Application</string>
+    <string name="get_the_bes">
+Get the Best \nMedical Service
+</string>
+    <string name="lorem_ipsum">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed placerat est.
+</string>
 </resources>

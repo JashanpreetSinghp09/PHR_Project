@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:aapt="http://schemas.android.com/aapt"
+            android:width="42dp"
+            android:height="42dp"
+            android:viewportWidth="71.41"
+            android:viewportHeight="71.41">
+            <group>
+                <clip-path
+                    android:pathData="M20 0H51.4116C62.4573 0 71.4116 8.95431 71.4116 20V51.4116C71.4116 62.4573 62.4573 71.4116 51.4116 71.4116H20C8.95431 71.4116 0 62.4573 0 51.4116V20C0 8.95431 8.95431 0 20 0Z"
+                    />
+                <path
+                    android:pathData="M0 0V71.4116H71.4116V0"
+                    android:fillColor="#FAF0DB"
+                    />
+            </group>
+        </vector>
+    </item>
+    <item android:drawable="@drawable/medicineimg" />
+</layer-list>
