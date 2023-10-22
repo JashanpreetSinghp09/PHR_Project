@@ -8,9 +8,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#1C6BA4">
 
         <!-- Login Form -->
+
         <LinearLayout
             android:id="@+id/login_form"
             android:layout_width="match_parent"
@@ -22,18 +24,20 @@
             <!-- Email Input -->
             <EditText
                 android:id="@+id/email"
-                android:layout_width="390dp"
-                android:layout_height="91dp"
+                android:layout_width="400dp"
+                android:layout_height="68dp"
                 android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_edittext_bg"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
 
             <!-- Password Input -->
             <EditText
                 android:id="@+id/password"
-                android:layout_width="394dp"
-                android:layout_height="97dp"
+                android:layout_width="400dp"
+                android:layout_height="68dp"
                 android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_edittext_bg"
                 android:hint="Password"
                 android:inputType="textPassword" />
 
@@ -42,18 +46,21 @@
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:textSize="18sp"
+                android:textColor="#1C6BA4"
                 android:text="Login" />
 
             <!-- Signup TextView -->
             <TextView
+                android:id="@+id/signup_link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:text="Don't have an account? Sign up!"
-                android:layout_marginTop="16dp"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="16sp"
-                android:id="@+id/signup_link" />
+                android:textColor="#BECADA"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <ProgressBar
