@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="99dp"
-        android:layout_height="25dp"
+        android:layout_height="25.67dp"
         android:layout_marginTop="32dp"
         android:text="👋 Hello!"
         android:textSize="16sp"
@@ -23,10 +23,10 @@
         android:layout_width="154dp"
         android:layout_height="37dp"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="314dp"
         android:text="FirstLast"
-        android:textSize="20sp"
+        android:textSize="27sp"
         app:layout_constraintBottom_toTopOf="@+id/SearchHomepage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.061"
@@ -38,27 +38,27 @@
         android:id="@+id/SearchHomepage"
         android:layout_width="381dp"
         android:layout_height="64dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="24dp"
         android:autofillHints="Search medical ..."
-        android:queryHint="Search medical ..."
         android:background="@drawable/searchview_background"
+        android:queryHint="Search medical ..."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="69dp"
-        android:layout_height="54dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.04"
-        app:srcCompat="@drawable/profileicon"
-        tools:srcCompat="@drawable/profileicon" />
+        app:srcCompat="@drawable/eclipse"
+        tools:srcCompat="@drawable/eclipse" />
 
     <TextView
         android:id="@+id/textView4"
@@ -125,10 +125,10 @@
         android:layout_width="400dp"
         android:layout_height="203dp"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="5dp"
-        android:orientation="horizontal"
         android:background="@drawable/nurse_background"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -156,42 +156,138 @@
                 android:layout_width="168dp"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="24dp"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="24dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/lorem_ipsum"
-                android:textAppearance="@style/lorem_ipsum"
+                android:gravity="top"
                 android:lineSpacingExtra="0sp"
-                android:gravity="top" />
+                android:text="@string/lorem_ipsum"
+                android:textAppearance="@style/lorem_ipsum" />
         </LinearLayout>
 
         <ImageView
-            android:layout_marginLeft="24dp"
             android:id="@+id/imageView6"
             android:layout_width="170dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
             app:srcCompat="@drawable/nurseimg" />
 
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="217dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="178dp"
+        android:fontFamily="@style/Theme.PHRApplication"
         android:text="Upcoming Appointments"
         android:textSize="16sp"
-        android:fontFamily="@style/Theme.PHRApplication"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+    <HorizontalScrollView
+        android:layout_width="360dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="46dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <LinearLayout
+            android:id="@+id/appointments"
+            android:layout_width="282dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/appointments"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="71.46dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13.69dp"
+                android:layout_marginTop="10.89dp"
+                android:layout_marginBottom="10.61dp"
+                android:background="@drawable/date"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="21.51dp"
+                    android:fontFamily="@style/Theme.PHRApplication"
+                    android:text="12"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:fontFamily="@style/Theme.PHRApplication"
+                    android:text="Tue"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:layout_marginLeft="16.85dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@style/Theme.PHRApplication"
+                    android:text="09:30 AM"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="16.85dp"
+                    android:fontFamily="@style/Theme.PHRApplication"
+                    android:text="Dr. Mark Stevens"
+                    android:textColor="@color/white"
+                    android:textSize="19sp" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="16.85dp"
+                    android:fontFamily="@style/Theme.PHRApplication"
+                    android:text="Cadiologist"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="408dp"
         android:layout_height="89dp"
-        android:layout_marginEnd="3dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,8 +302,8 @@
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="1dp"
+                android:layout_weight="1"
                 android:background="#5EFFFFFF"
                 app:srcCompat="@drawable/home"
                 tools:srcCompat="@drawable/home" />
@@ -230,10 +326,10 @@
             <ImageView
                 android:id="@+id/imageView12"
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/schedule"
-                tools:srcCompat="@drawable/schedule"
-                android:layout_height="1dp"/>
+                tools:srcCompat="@drawable/schedule" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -253,8 +349,8 @@
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="match_parent"
-                android:layout_weight="1"
                 android:layout_height="1dp"
+                android:layout_weight="1"
                 app:srcCompat="@drawable/report"
                 tools:srcCompat="@drawable/report" />
 
@@ -276,10 +372,10 @@
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/notifications"
-                tools:srcCompat="@drawable/notifications"
-                android:layout_height="1dp"/>
+                tools:srcCompat="@drawable/notifications" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -291,91 +387,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <HorizontalScrollView
-        android:layout_width="282dp"
-        android:layout_height="120.73dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="3dp"
-        android:background="#1C6BA4"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-        <LinearLayout
-            android:id="@+id/appointments"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="92dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#3A89C2">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="12"
-                    android:textColor="@color/white"
-                    android:textSize="26sp"
-                    android:fontFamily="@style/Theme.PHRApplication"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Tue"
-                    android:textColor="@color/white"
-                    android:textSize="26sp"
-                    android:fontFamily="@style/Theme.PHRApplication"
-                    android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="172dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:text="09:30 AM"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@style/Theme.PHRApplication"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="match_parent"
-                    android:layout_height="34dp"
-                    android:text="Dr. Mark Stevens"
-                    android:textColor="@color/white"
-                    android:textSize="19sp"
-                    android:fontFamily="@style/Theme.PHRApplication"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="33dp"
-                    android:text="Cadiologist"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    android:fontFamily="@style/Theme.PHRApplication"
-                    android:textAlignment="center" />
-            </LinearLayout>
-        </LinearLayout>
-    </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
