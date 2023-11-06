@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         int viewId = view.getId();
         if (viewId == LOG_IN_LINK_ID) {
-            startActivity(new Intent(this, MainActivity.class)); // Switching activity (intent)
+            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         } else if (viewId == R.id.register_btn) {
             registerUser(); // Function to handle user registration
         }
@@ -136,6 +136,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                                 progressBar.setVisibility(View.GONE);
 
                                                 // re direct to log in page now !!
+                                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+
 
                                             } else {
                                                 Toast.makeText(RegisterActivity.this, "Failed to Register, Try Again", Toast.LENGTH_SHORT).show();

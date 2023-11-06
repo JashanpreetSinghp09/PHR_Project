@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import org.web3j.crypto.CipherException;
 import org.web3j.crypto.Credentials;
 import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.tx.RawTransactionManager;
 import org.web3j.tx.TransactionManager;
@@ -43,12 +45,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressBar progressBar;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/v3/b8c2315d069b4ab4a8cc2517d75771ec"));
+
+
+
+
+
+        /*Web3j web3 = Web3j.build(new HttpService("https://sepolia.infura.io/v3/022a177facaa48488bff31b260295554"));
         try {
             Credentials credentials = WalletUtils.loadCredentials("Ge$haan226975", "0xb30bAacD5B0CA63Bc49ac35EC8108f0073BCb60e");
             String contractABI = "[{\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"x\",\"type\":\"uint256\"}],\"name\":\"set\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]";
@@ -66,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             throw new RuntimeException(e);
         } catch (CipherException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
 
 
@@ -135,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     // redirect to App Home Page!! (poll part!)      // creating empty activity for now!!
-                    startActivity(new Intent(MainActivity.this, HomepageActivity.class));
+                    startActivity(new Intent(MainActivity.this, WalletLoginActivity.class));
                     //Toast.makeText(MainActivity.this, "Login  success", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }else {
