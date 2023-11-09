@@ -2,6 +2,7 @@ package com.example.phr_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,10 +29,9 @@ import java.security.Security;
 public class WalletLoginActivity extends AppCompatActivity {
 
     private EditText newPasswordEditText;
-    private Button createWalletButton;
+    private Button createWalletButton, loadWalletButton, homePage;
     private EditText passwordEditText;
     private EditText walletNameEditText;
-    private Button loadWalletButton;
     private Web3j web3j;
 
     private Credentials credentials;
@@ -59,6 +59,7 @@ public class WalletLoginActivity extends AppCompatActivity {
         // Create wallet ids
         newPasswordEditText = findViewById(R.id.newPassword);
         createWalletButton = findViewById(R.id.createWallet);
+        homePage = findViewById(R.id.homepage);
 
         // Load wallet ids
         passwordEditText = findViewById(R.id.editTextPassword);
@@ -105,6 +106,7 @@ public class WalletLoginActivity extends AppCompatActivity {
                 Toast.makeText(WalletLoginActivity.this, result, Toast.LENGTH_LONG).show();
                 if (walletName != null) {
                     wallet_name.setText(walletName);
+                    walletNameEditText.setText(walletName);
                 }
             }
         }
@@ -137,6 +139,14 @@ public class WalletLoginActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Toast.makeText(WalletLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        homePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(WalletLoginActivity.this, HomepageActivity.class));
             }
         });
     }
