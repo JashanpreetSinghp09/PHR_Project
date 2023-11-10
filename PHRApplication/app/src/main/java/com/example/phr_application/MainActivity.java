@@ -10,7 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText userEmail, userPassword;
     private Button btn_Login;
     // -------------------//
-    private ProgressBar progressBar;
 
 
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         userEmail = findViewById(R.id.email);
         userPassword = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
+
 
         btn_Login = findViewById(R.id.login_button);
         btn_Login.setOnClickListener(this);
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+
 
 
         /*/
@@ -146,10 +145,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // redirect to App Home Page!! (poll part!)      // creating empty activity for now!!
                     startActivity(new Intent(MainActivity.this, WalletLoginActivity.class));
                     //Toast.makeText(MainActivity.this, "Login  success", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
+
                 }else {
                     Toast.makeText(MainActivity.this, "Login Failed!, Please check credentials", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
+
                 }
             }
         });

@@ -63,20 +63,6 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="98dp"
-            android:layout_height="88dp"
-            android:layout_below="@+id/login_form"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="155dp"
-            android:layout_marginTop="37dp"
-            android:layout_marginEnd="158dp"
-            android:layout_marginBottom="70dp" />
-
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
