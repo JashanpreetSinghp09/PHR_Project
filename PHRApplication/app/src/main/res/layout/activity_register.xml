@@ -14,18 +14,6 @@
 
         <!-- Registration Form -->
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="115dp"
-            android:layout_height="85dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="67dp"
-            android:layout_marginBottom="559dp"
-            android:visibility="invisible"
-            tools:visibility="invisible" />
-
         <LinearLayout
             android:id="@+id/register_form"
             android:layout_width="match_parent"

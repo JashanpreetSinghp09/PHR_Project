@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.util.*;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private TextView existingUser;
     private EditText editText_userName, editText_userPassword, editText_confirm_userPassword, editText_email;
     private Button registerUser;
-    private ProgressBar progressBar;
     private static final int LOG_IN_LINK_ID = R.id.logIn_link;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +49,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editText_userName = findViewById(R.id.full_name);
         editText_userPassword = findViewById(R.id.password);
         editText_confirm_userPassword = findViewById(R.id.confirm_password);
-        progressBar = findViewById(R.id.progressBar2);
     }
 
     @Override
@@ -113,7 +110,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         / progress bar is no visible after click and add user to FireBase using email and pass
          */
 
-        progressBar.setVisibility(View.VISIBLE);
 
         /*/
         adding User object using constructor to fireBase database using email and password authentication in FireBase
@@ -125,29 +121,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             com.example.phr_application.User user = new com.example.phr_application.User(fullName, email);
+                            Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful()){
-                                                Toast.makeText(RegisterActivity.this, "User has been registered successfully", Toast.LENGTH_LONG).show();
-                                                progressBar.setVisibility(View.GONE);
-
-                                                // re direct to log in page now !!
-                                                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-
-
-                                            } else {
-                                                Toast.makeText(RegisterActivity.this, "Failed to Register, Try Again", Toast.LENGTH_SHORT).show();
-                                                progressBar.setVisibility(View.GONE);
-                                            }
-                                        }
-                                    });
                         } else {
                             Toast.makeText(RegisterActivity.this, "Failed to Register, Try Again", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
