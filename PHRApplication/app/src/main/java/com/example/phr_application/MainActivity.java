@@ -49,12 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Wallet declaration
     SharedPreferences sharedPreferences;
 
-    private Web3j web3j;
-
-    private Credentials credentials;
-    private String walletDirectory, walletName, password_string;
-
-    private String storedEmail, storedPassword, storedWalletName;
+    private WalletManager walletManager;
 
 
 
@@ -75,43 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = findViewById(R.id.signup_link);   // for registration
         register.setOnClickListener(this);
 
+        walletManager = WalletManager.getInstance(this);
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
 
-        //Wallet Initialization
-        storedEmail = sharedPreferences.getString("email", "");
-        storedPassword = sharedPreferences.getString("password", "");
-        storedWalletName = sharedPreferences.getString("walletName", "");
+        String storedEmail = sharedPreferences.getString("email", "");
+        String storedPassword = sharedPreferences.getString("password", "");
+
 
         if (!storedEmail.isEmpty() || !storedPassword.isEmpty()) {
             userEmail.setText(storedEmail);
             userPassword.setText(storedPassword);
-        }
-
-        final Provider provider = Security.getProvider(BouncyCastleProvider.PROVIDER_NAME);
-        if (provider == null) {
-
-            return;
-        }
-        if (provider.getClass().equals(BouncyCastleProvider.class)) {
-
-            return;
-        }
-        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
-        Security.insertProviderAt(new BouncyCastleProvider(), 1);
-
-        walletDirectory = getFilesDir().getAbsolutePath();
-
-        web3j = Web3j.build(new HttpService("https://sepolia.infura.io/v3/022a177facaa48488bff31b260295554"));
-        try {
-            Web3ClientVersion clientVersion = web3j.web3ClientVersion().sendAsync().get();
-            if (!clientVersion.hasError()) {
-                Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
-            } else {
-                Log.d("error", clientVersion.getError().getMessage());
-                Toast.makeText(this, clientVersion.getError().getMessage(), Toast.LENGTH_LONG).show();
-            }
-        } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -124,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             userLogin(); // Function to handle user registration
         }
     }
-
 
     private void userLogin() {
 
@@ -169,32 +136,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
 
-                    try {
-                        credentials = WalletUtils.loadCredentials(storedPassword, walletDirectory + "/" + storedWalletName);
-                        String address = credentials.getAddress();
-                        EthGetBalance ethGetBalance = web3j.ethGetBalance(credentials.getAddress(), DefaultBlockParameterName.LATEST).sendAsync().get();
-                        String balance =  (Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER)).toString();
+                    String storedPassword = sharedPreferences.getString("password", "");
+                    String storedWalletName = sharedPreferences.getString("walletName", "");
 
-                        // Store address and balance in SharedPreferences
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("address", address);
-                        editor.putString("balance", balance);
-                        editor.apply();
+                    if (!storedWalletName.isEmpty()) {
+                        walletManager.loadWalletCredentials(storedPassword, storedWalletName, new WalletManager.LoadWalletCallback(){
 
-                        Toast.makeText(MainActivity.this, address, Toast.LENGTH_LONG).show();
+                            @Override
+                            public void onWalletLoaded(String address, String balance, String message) {
 
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    } catch (CipherException e) {
-                        throw new RuntimeException(e);
-                    } catch (ExecutionException e) {
-                        throw new RuntimeException(e);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString("address", address);
+                                editor.putString("balance", balance);
+                                editor.apply();
+
+                                // Handle successful wallet loading
+                                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                                // Redirect to the login page
+                                startActivity(new Intent(MainActivity.this, HomepageActivity.class));
+                            }
+
+                            @Override
+                            public void onWalletLoadFailed(String errorMessage) {
+
+                                // Handle wallet generation failure
+                                Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
 
-                    // Redirecting to HomePage
-                    startActivity(new Intent(MainActivity.this, HomepageActivity.class));
 
                 }else {
                     Toast.makeText(MainActivity.this, "Login Failed!, Please check credentials", Toast.LENGTH_LONG).show();
