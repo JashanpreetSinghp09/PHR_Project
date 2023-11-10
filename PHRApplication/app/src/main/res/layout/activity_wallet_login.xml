@@ -31,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="Your  wallet  name  will  appear  here  after  you  create  a  new  wallet"
-            android:textIsSelectable="true" />
+            android:textIsSelectable="true"
+            android:visibility="invisible" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -58,7 +59,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:hint="Your address will appear here"
-            android:textIsSelectable="true" />
+            android:textIsSelectable="true"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/balance"
@@ -66,7 +68,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:hint="Your balance will appear here" />
+            android:hint="Your balance will appear here"
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/homepage"

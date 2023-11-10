@@ -2,6 +2,7 @@ package com.example.phr_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -37,17 +38,17 @@ public class WalletLoginActivity extends AppCompatActivity {
     private Credentials credentials;
 
     private TextView wallet_name, address, balance;
-    private String walletDirectory, walletName;
+    private String walletDirectory, walletName, password_string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet_login);
 
-        final Provider provider = Security.getProvider(BouncyCastleProvider.PROVIDER_NAME);      //implement some of its cryptographic functionality
-        if (provider == null) {                                                                  //But Android included a shortened version of Bouncycastle, and there is no full support for ECDSA.
-            // Web3j will set up the provider lazily when it's first used.                       //KeyPairGenerator/ECDSA is not supported, which is the required one to generate ethereum keys.
-            return;                                                                              // So we are providing it manually here
+        final Provider provider = Security.getProvider(BouncyCastleProvider.PROVIDER_NAME);
+        if (provider == null) {
+
+            return;
         }
         if (provider.getClass().equals(BouncyCastleProvider.class)) {
 
@@ -88,13 +89,13 @@ public class WalletLoginActivity extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... params) {
                 try {
-                    String password_string = newPasswordEditText.getText().toString().trim();
+                    password_string = newPasswordEditText.getText().toString().trim();
                     if (password_string.isEmpty()) {
-                        return "Please enter a password";
+                        return "Please enter a password!";
                     } else {
                         // Generate the wallet in the background
                         walletName = WalletUtils.generateNewWalletFile(password_string, new File(walletDirectory));
-                        return "Wallet generated successfully";
+                        return "Wallet generated successfully!";
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -106,6 +107,7 @@ public class WalletLoginActivity extends AppCompatActivity {
                 Toast.makeText(WalletLoginActivity.this, result, Toast.LENGTH_LONG).show();
                 if (walletName != null) {
                     wallet_name.setText(walletName);
+                    passwordEditText.setText(password_string);
                     walletNameEditText.setText(walletName);
                 }
             }
@@ -119,6 +121,7 @@ public class WalletLoginActivity extends AppCompatActivity {
         });
 
         loadWalletButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 try {
@@ -133,8 +136,11 @@ public class WalletLoginActivity extends AppCompatActivity {
                         EthGetBalance ethGetBalance = web3j.ethGetBalance(credentials.getAddress(), DefaultBlockParameterName.LATEST).sendAsync().get();
                         System.out.println((Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER)).toString());
 
-                        address.setText(credentials.getAddress());
-                        balance.setText((Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER)).toString());
+                        address.setText("Wallet address:"+ credentials.getAddress());
+                        balance.setText("\nBalance:"+ (Convert.fromWei(ethGetBalance.getBalance().toString(), Convert.Unit.ETHER)).toString());
+                        address.setVisibility(View.VISIBLE);
+                        balance.setVisibility(View.VISIBLE);
+                        Toast.makeText(WalletLoginActivity.this, "Wallet loaded successfully! Click on homepage to proceed", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
                     Toast.makeText(WalletLoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
