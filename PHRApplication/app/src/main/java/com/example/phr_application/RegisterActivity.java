@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.web3j.crypto.WalletUtils;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.http.HttpService;
+
+import java.io.File;
+import java.security.Provider;
+import java.security.Security;
+
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;   // for firebase authentication
@@ -27,6 +39,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private TextView existingUser;
     private EditText editText_userName, editText_userPassword, editText_confirm_userPassword, editText_email;
     private Button registerUser;
+
+
+    //Wallet Declaration
+    SharedPreferences sharedPreferences;
+    private Web3j web3j;
+    private String walletDirectory, walletName, password_string;
+
     private static final int LOG_IN_LINK_ID = R.id.logIn_link;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +53,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-
-        /*
-        / Initializing the variables
-         */
 
         registerUser = findViewById(R.id.register_btn);
         existingUser = findViewById(R.id.logIn_link);
@@ -49,6 +64,37 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editText_userName = findViewById(R.id.full_name);
         editText_userPassword = findViewById(R.id.password);
         editText_confirm_userPassword = findViewById(R.id.confirm_password);
+
+        sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
+
+
+        //Wallet Initializations
+        final Provider provider = Security.getProvider(BouncyCastleProvider.PROVIDER_NAME);
+        if (provider == null) {
+
+            return;
+        }
+        if (provider.getClass().equals(BouncyCastleProvider.class)) {
+
+            return;
+        }
+        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
+        Security.insertProviderAt(new BouncyCastleProvider(), 1);
+
+        walletDirectory = getFilesDir().getAbsolutePath();
+
+        web3j = Web3j.build(new HttpService("https://sepolia.infura.io/v3/022a177facaa48488bff31b260295554"));
+        try {
+            Web3ClientVersion clientVersion = web3j.web3ClientVersion().sendAsync().get();
+            if (!clientVersion.hasError()) {
+                Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
+            } else {
+                Log.d("error", clientVersion.getError().getMessage());
+                Toast.makeText(this, clientVersion.getError().getMessage(), Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -58,6 +104,40 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             startActivity(new Intent(RegisterActivity.this, MainActivity.class));
         } else if (viewId == R.id.register_btn) {
             registerUser(); // Function to handle user registration
+        }
+    }
+
+    class GenerateWalletTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... params) {
+            try {
+                password_string = editText_userPassword.getText().toString().trim();
+                if (password_string.isEmpty()) {
+                    return "Please enter a password!";
+                } else {
+                    // Generate the wallet in the background
+                    walletName = WalletUtils.generateNewWalletFile(password_string, new File(walletDirectory));
+                    return "Wallet generated successfully!";
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Error: " + e.getMessage();
+            }
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(RegisterActivity.this, result, Toast.LENGTH_LONG).show();
+            if (walletName != null) {
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("walletName", walletName);
+                editor.putString("password", password_string);
+                editor.apply();
+                Toast.makeText(RegisterActivity.this, walletName, Toast.LENGTH_LONG).show();
+
+                //Redirecting to the login page
+                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+            }
         }
     }
 
@@ -122,7 +202,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if(task.isSuccessful()){
                             com.example.phr_application.User user = new com.example.phr_application.User(fullName, email);
                             Toast.makeText(RegisterActivity.this, "Registered", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+
+                            // Save the email to SharedPreferences
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("email", email);
+                            editor.apply();
+
+                            new GenerateWalletTask().execute();
 
                         } else {
                             Toast.makeText(RegisterActivity.this, "Failed to Register, Try Again", Toast.LENGTH_SHORT).show();
