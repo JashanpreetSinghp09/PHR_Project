@@ -228,7 +228,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/textView_date1"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginTop="21.51dp"
@@ -239,7 +239,7 @@
                     android:textSize="22sp" />
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView_day1"
                     android:layout_width="match_parent"
                     android:layout_height="22dp"
                     android:fontFamily="@style/Theme.PHRApplication"
@@ -329,7 +329,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/imageView_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_weight="1"

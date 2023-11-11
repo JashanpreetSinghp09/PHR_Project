@@ -5,6 +5,7 @@ public class User {
     public String fullName;
     public String email;
 
+
     public User(){
 
     }
