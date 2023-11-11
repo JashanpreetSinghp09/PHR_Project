@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,41 +11,499 @@
     <!-- HorizontalScrollView for calendar days and dates -->
 
     <TextView
-        android:id="@+id/textViewSchedule"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="28dp"
-        android:text="Schedule"
-        android:textSize="24sp"
+        android:id="@+id/schedule"
+        android:layout_width="184dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="top"
+        android:lineSpacingExtra="-1sp"
+        android:padding="20dp"
+        android:text="@string/schedule"
+        android:textAppearance="@style/schedule"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollViewCalendar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSchedule"
-        app:layout_constraintStart_toStartOf="parent"
+    <ImageView
+        android:id="@+id/imageView_calender"
+        android:layout_width="75dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
+        android:clipToOutline="true"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
-        <!-- Add your calendar elements here -->
-        <!-- You can use a LinearLayout or RecyclerView for displaying days and dates -->
-        <!-- For example, a RecyclerView with a horizontal LinearLayoutManager -->
-    </HorizontalScrollView>
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toEndOf="@+id/schedule"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/calender_icon" />
 
-    <!-- CalendarView for the main calendar -->
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <RelativeLayout
+        android:id="@+id/frame_84"
+        android:layout_width="385dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewCalendar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/schedule">
+
+        <!-- HorizontalScrollView to enable horizontal scrolling -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Linear or other layout to hold your views horizontally -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <!-- Custom layout for each date and time -->
+                <RelativeLayout
+                    android:id="@+id/rectangle_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/date"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date1"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="12"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day1"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Tue"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date2"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="13"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day2"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Wed"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date3"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="13"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day3"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Wed"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date4"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="13"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day4"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Wed"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date5"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="13"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day5"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Wed"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date6"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="17"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day6"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Sun"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date7"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="18"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day7"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Mon"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date8"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="19"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day8"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Tue"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date9"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="20"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day9"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Wed"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rectangle_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="395px"
+                    android:background="@drawable/rectangle_1"
+                    android:backgroundTint="#FFFFFF">
+
+                    <!-- TextView to display date and time -->
+                    <LinearLayout
+                        android:layout_width="80dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="13.69dp"
+                        android:layout_marginTop="10.89dp"
+                        android:layout_marginBottom="10.61dp"
+                        android:background="@drawable/rectangle_1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView_date10"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="21.51dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="21"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textView_day10"
+                            android:layout_width="match_parent"
+                            android:layout_height="22dp"
+                            android:fontFamily="sans-serif-light"
+                            android:text="Thu"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+    </RelativeLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
