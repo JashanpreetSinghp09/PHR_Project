@@ -20,5 +20,9 @@
         </vector>
     </item>
     <!-- Add the image as the second layer -->
-    <item android:drawable="@drawable/doctorimg" />
+    <item android:drawable="@drawable/doctorimg"
+        android:width="40.67dp"
+        android:height="40.67dp"
+        android:gravity="center"
+        />
 </layer-list>

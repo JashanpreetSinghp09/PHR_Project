@@ -19,5 +19,8 @@
             </group>
         </vector>
     </item>
-    <item android:drawable="@drawable/virusimg" />
+    <item android:drawable="@drawable/virusimg"
+        android:width="40.67dp"
+        android:height="40.67dp"
+        android:gravity="center"/>
 </layer-list>

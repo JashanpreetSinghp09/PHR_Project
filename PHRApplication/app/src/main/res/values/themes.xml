@@ -19,4 +19,10 @@
         <item name="android:letterSpacing">0.01</item>
         <item name="android:textColor">#4A545E</item>
     </style>
+
+    <style name="heart_rate">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#0E1012</item>
+    </style>
+
 </resources>

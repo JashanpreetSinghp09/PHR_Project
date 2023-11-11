@@ -26,6 +26,7 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="314dp"
         android:text="FirstLast"
+        android:textStyle="bold"
         android:textSize="27sp"
         app:layout_constraintBottom_toTopOf="@+id/SearchHomepage"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,6 +69,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="362dp"
         android:text="Services"
+        android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,9 +79,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="396dp"
         android:layout_height="75dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="40dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +151,7 @@
                 android:gravity="top"
                 android:lineSpacingExtra="0sp"
                 android:text="@string/get_the_bes"
+                android:textStyle="bold"
                 android:textAppearance="@style/get_the_bes" />
 
             <TextView
@@ -178,12 +181,13 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="217dp"
-        android:layout_height="35dp"
+        android:layout_height="23dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="178dp"
         android:fontFamily="@style/Theme.PHRApplication"
         android:text="Upcoming Appointments"
+        android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
@@ -192,18 +196,18 @@
 
     <HorizontalScrollView
         android:layout_width="360dp"
-        android:layout_height="152dp"
+        android:layout_height="150dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="92dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="4dp"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
@@ -269,7 +273,8 @@
                     android:fontFamily="@style/Theme.PHRApplication"
                     android:text="Dr. Mark Stevens"
                     android:textColor="@color/white"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView15"
@@ -287,7 +292,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="408dp"
-        android:layout_height="89dp"
+        android:layout_height="70dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

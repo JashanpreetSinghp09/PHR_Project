@@ -19,5 +19,8 @@
             </group>
         </vector>
     </item>
-    <item android:drawable="@drawable/reportsimg" />
+    <item android:drawable="@drawable/reportsimg"
+        android:width="40.67dp"
+        android:height="40.67dp"
+        android:gravity="center"/>
 </layer-list>
