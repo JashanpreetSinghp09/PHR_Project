@@ -68,7 +68,7 @@
                     android:id="@+id/rectangle_1"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -112,7 +112,7 @@
                     android:id="@+id/rectangle_2"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -122,7 +122,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -156,7 +156,7 @@
                     android:id="@+id/rectangle_3"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -166,7 +166,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -199,7 +199,7 @@
                     android:id="@+id/rectangle_4"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -209,7 +209,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -242,7 +242,7 @@
                     android:id="@+id/rectangle_5"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -252,7 +252,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -285,7 +285,7 @@
                     android:id="@+id/rectangle_6"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -295,7 +295,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -328,7 +328,7 @@
                     android:id="@+id/rectangle_7"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -338,7 +338,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -371,7 +371,7 @@
                     android:id="@+id/rectangle_8"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -381,7 +381,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -414,7 +414,7 @@
                     android:id="@+id/rectangle_9"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -424,7 +424,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
@@ -457,7 +457,7 @@
                     android:id="@+id/rectangle_10"
                     android:layout_width="wrap_content"
                     android:layout_height="395px"
-                    android:background="@drawable/rectangle_1"
+                    android:background="@drawable/rectangle_01"
                     android:backgroundTint="#FFFFFF">
 
                     <!-- TextView to display date and time -->
@@ -467,7 +467,7 @@
                         android:layout_marginLeft="13.69dp"
                         android:layout_marginTop="10.89dp"
                         android:layout_marginBottom="10.61dp"
-                        android:background="@drawable/rectangle_1"
+                        android:background="@drawable/rectangle_01"
                         android:orientation="vertical">
 
                         <TextView
