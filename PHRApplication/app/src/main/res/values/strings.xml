@@ -14,4 +14,8 @@
     <string name="heart_rate">
         Heart Rate
     </string>
+
+    <string name="schedule">
+Schedule
+</string>
 </resources>
