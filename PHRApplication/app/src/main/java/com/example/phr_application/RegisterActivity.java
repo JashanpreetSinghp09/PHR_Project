@@ -128,6 +128,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     editor.putString("walletName", walletName);
                                     editor.putString("password", password);
                                     editor.putString("email", email);
+                                    editor.putString("fullName", fullName);
                                     editor.apply();
 
                                     // Handle successful wallet generation
