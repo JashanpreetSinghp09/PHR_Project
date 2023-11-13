@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add the vector drawable directly -->
+    <item>
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:aapt="http://schemas.android.com/aapt"
+            android:width="44dp"
+            android:height="44dp"
+            android:viewportWidth="44"
+            android:viewportHeight="44"
+            >
+            <group>
+                <clip-path
+                    android:pathData="M16 0H28C36.8366 0 44 7.16344 44 16V28C44 36.8366 36.8366 44 28 44H16C7.16344 44 0 36.8366 0 28V16C0 7.16344 7.16344 0 16 0Z"
+                    />
+                <path
+                    android:pathData="M0 0V44H44V0"
+
+                    />
+                <path
+                    android:pathData="M16 0H28C36.8366 0 44 7.16344 44 16V28C44 36.8366 36.8366 44 28 44H16C7.16344 44 0 36.8366 0 28V16C0 7.16344 7.16344 0 16 0Z"
+                    android:strokeWidth="2"
+                    android:strokeColor="#D7DEEA"
+                    />
+            </group>
+        </vector>
+    </item>
+    <!-- Add the image as the second layer -->
+    <item android:drawable="@drawable/backic2"
+        android:width="15dp"
+        android:height="15dp"
+        android:gravity="center"
+        />
+</layer-list>

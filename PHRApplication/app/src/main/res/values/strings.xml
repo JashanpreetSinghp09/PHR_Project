@@ -19,9 +19,27 @@
         Schedule
     </string>
 
-    <style name="cybersecuri">
-        <item name="android:textSize">13sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
+    <string name="payment_met">
+        Payment Method
+    </string>
+
+    <string name="available_b">
+        Available balance
+    </string>
+
+    <string name="value">
+        $3,578.99
+    </string>
+
+    <string name="card_number">
+        1234 5678 9012 3456
+    </string>
+
+    <string name="select_opti">
+        Select Option
+    </string>
+    <string name="cont">
+        Continue
+    </string>
 
 </resources>

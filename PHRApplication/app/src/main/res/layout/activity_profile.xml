@@ -131,6 +131,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/payment"
             android:layout_width="355dp"
             android:layout_height="68dp"
             android:layout_marginBottom="20dp"
@@ -164,6 +165,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/logout"
         android:layout_width="150dp"
         android:layout_height="30dp"
         android:layout_marginStart="130dp"
@@ -180,7 +182,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/logout"/>
+            app:srcCompat="@drawable/logout" />
 
         <TextView
             android:id="@+id/textView25"

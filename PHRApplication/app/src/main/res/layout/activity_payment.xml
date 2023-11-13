@@ -1,66 +1,202 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
     tools:context=".PaymentActivity">
 
-    <!-- Account Page -->
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="227dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back2" />
+
+    <TextView
+        android:id="@+id/payment_met"
+        android:layout_width="145dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="151dp"
+        android:gravity="center_horizontal|top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/payment_met"
+        android:textAppearance="@style/payment_met"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView21"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
-        android:id="@+id/account_page"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <!-- Account Details -->
-        <TextView
-            android:id="@+id/account_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account Name"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/account_balance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account Balance: $0.00"
-            android:textSize="16sp" />
-
-        <!-- Payment Options -->
-        <TextView
-            android:id="@+id/payment_options_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Payment Options"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
+        android:id="@+id/linearLayout7"
+        android:layout_width="311dp"
+        android:layout_height="183dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/balance"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment_met">
 
         <LinearLayout
-            android:id="@+id/payment_options_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_width="265dp"
+            android:layout_height="36dp"
 
-            <!-- PayPal -->
-            <Button
-                android:id="@+id/paypal_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pay with PayPal" />
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="22dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-            <!-- Credit Card -->
-            <Button
-                android:id="@+id/credit_card_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pay with Credit Card" />
+            <TextView
+                android:id="@+id/available_b"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginEnd="67dp"
+                android:text="@string/available_b"
+                android:textAppearance="@style/available_b" />
+
+            <ImageView
+                android:id="@+id/imageView17"
+                android:layout_width="56dp"
+                android:layout_height="31dp"
+                android:layout_marginStart="23dp"
+                android:src="@drawable/visa" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/some_id"
+            android:layout_width="157dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="23dp"
+            android:gravity="top"
+            android:lineSpacingExtra="-5sp"
+            android:text="@string/value"
+            android:textAppearance="@style/value" />
+
+        <TextView
+            android:id="@+id/some_id2"
+            android:layout_width="206dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="45dp"
+            android:gravity="top"
+            android:text="@string/card_number"
+            android:textAppearance="@style/card_number" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/select_opti"
+        android:layout_width="110dp"
+        android:layout_height="23dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="75dp"
+        android:gravity="top"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/select_opti"
+        android:textAppearance="@style/select_opti"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="221dp"
+        android:layout_height="197dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="36dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_opti">
+
+        <LinearLayout
+            android:layout_width="221dp"
+            android:layout_height="51.3dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/myCheckBox"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="13.65dp"
+                android:button="@drawable/check"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/b57fcd9996e"
+                android:layout_width="180dp"
+                android:layout_height="51.3dp"
+                android:layout_marginLeft="17dp"
+                android:background="@drawable/paypal" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="221dp"
+            android:layout_height="64.2dp"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/myCheckBox2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="20.1dp"
+                android:button="@drawable/check"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/b57fcd9996"
+                android:layout_width="180dp"
+                android:layout_height="64.2dp"
+                android:layout_marginLeft="17dp"
+                android:background="@drawable/payoneer" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="221dp"
+            android:layout_height="44.65dp"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/myCheckBox3"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="13.65dp"
+                android:button="@drawable/check"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/b57fcd999"
+                android:layout_width="110dp"
+                android:layout_height="44.65dp"
+                android:layout_marginLeft="17dp"
+                android:background="@drawable/visa2" />
+        </LinearLayout>
     </LinearLayout>
-</RelativeLayout>
+
+    <Button
+        android:id="@+id/cont2"
+        android:layout_width="319dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/cont"
+        android:text="@string/cont"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

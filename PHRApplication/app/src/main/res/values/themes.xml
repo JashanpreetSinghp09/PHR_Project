@@ -31,4 +31,37 @@
         <item name="android:textColor">#0E1012</item>
     </style>
 
+    <style name="cybersecuri">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="payment_met">
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#0E1012</item>
+    </style>
+
+    <style name="available_b">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#B3FFFFFF</item>
+    </style>
+
+    <style name="value">
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="card_number">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#A3FFFFFF</item>
+    </style>
+
+    <style name="select_opti">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#0E1012</item>
+    </style>
+
 </resources>

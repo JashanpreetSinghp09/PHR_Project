@@ -1,0 +1,44 @@
+<!-- res/drawable/checkbox_selector.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked state -->
+    <item android:state_checked="true">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <group>
+                <clip-path
+                    android:pathData="M6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6C0 2.68629 2.68629 0 6 0Z"
+                    android:fillColor="#000000"
+                    />
+                <path
+                    android:pathData="M6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6C0 2.68629 2.68629 0 6 0Z"
+                    android:strokeWidth="2"
+                    android:strokeColor="#4A545E"
+                    android:fillColor="#1C6BA4"
+                    />
+            </group>
+        </vector>
+    </item>
+
+    <!-- Unchecked state -->
+    <item android:state_checked="false">
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <group>
+                <clip-path
+                    android:pathData="M6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6C0 2.68629 2.68629 0 6 0Z"
+                    />
+                <path
+                    android:pathData="M6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6C0 2.68629 2.68629 0 6 0Z"
+                    android:strokeWidth="2"
+                    android:strokeColor="#4A545E"
+                    />
+            </group>
+        </vector>
+    </item>
+</selector>
