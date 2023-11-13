@@ -7,37 +7,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class ReportActivity extends AppCompatActivity {
+public class NotificationsActivity extends AppCompatActivity {
 
-    LinearLayout homeView, scheduleView, notificationView;
+    LinearLayout homeView, scheduleView, reportView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.activity_notifications);
 
-        homeView = findViewById(R.id.home2);
-        scheduleView = findViewById(R.id.schedul3);
-        notificationView = findViewById(R.id.notify2);
+        homeView = findViewById(R.id.home4);
+        scheduleView = findViewById(R.id.schedule3);
+        reportView = findViewById(R.id.report5);
 
         homeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ReportActivity.this, HomepageActivity.class));
+                startActivity(new Intent(NotificationsActivity.this, HomepageActivity.class));
             }
         });
 
         scheduleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ReportActivity.this, ScheduleActivity.class));
+                startActivity(new Intent(NotificationsActivity.this, ScheduleActivity.class));
             }
         });
 
-        notificationView.setOnClickListener(new View.OnClickListener() {
+        reportView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ReportActivity.this, NotificationsActivity.class));
+                startActivity(new Intent(NotificationsActivity.this, ReportActivity.class));
             }
         });
     }

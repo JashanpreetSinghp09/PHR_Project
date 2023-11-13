@@ -11,7 +11,7 @@
     <!-- HorizontalScrollView for calendar days and dates -->
 
     <TextView
-        android:id="@+id/schdu"
+        android:id="@+id/schedul3"
         android:layout_width="184dp"
         android:layout_height="79dp"
         android:layout_marginTop="4dp"
@@ -38,7 +38,7 @@
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toEndOf="@+id/schdu"
+        app:layout_constraintStart_toEndOf="@+id/schedul3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/calender_icon" />
 
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schdu">
+        app:layout_constraintTop_toBottomOf="@+id/schedul3">
 
         <!-- HorizontalScrollView to enable horizontal scrolling -->
         <HorizontalScrollView
@@ -697,6 +697,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:id="@+id/home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -708,8 +709,8 @@
                 android:layout_height="24dp"
                 android:layout_weight="1"
                 android:background="#5EFFFFFF"
-                app:srcCompat="@drawable/home"
-                tools:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/home2"
+                tools:srcCompat="@drawable/home2" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -722,7 +723,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/schedule2"
+            android:id="@+id/schedule3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -733,8 +734,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/schedule"
-                tools:srcCompat="@drawable/schedule" />
+                app:srcCompat="@drawable/schedule2"
+                tools:srcCompat="@drawable/schedule2" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -747,7 +748,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/report4"
+            android:id="@+id/report5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -772,6 +773,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/notify"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

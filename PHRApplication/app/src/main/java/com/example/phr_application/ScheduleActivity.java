@@ -2,7 +2,10 @@ package com.example.phr_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -11,10 +14,37 @@ import java.util.Locale;
 
 public class ScheduleActivity extends AppCompatActivity {
 
+    LinearLayout homeView, reportView, notificationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+
+        homeView = findViewById(R.id.home);
+        reportView = findViewById(R.id.report5);
+        notificationView = findViewById(R.id.notify);
+
+        homeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ScheduleActivity.this, HomepageActivity.class));
+            }
+        });
+
+        reportView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ScheduleActivity.this, ReportActivity.class));
+            }
+        });
+
+        notificationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ScheduleActivity.this, NotificationsActivity.class));
+            }
+        });
 
         // array of TextView IDs for dates and days
 

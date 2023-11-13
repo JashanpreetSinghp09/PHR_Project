@@ -250,14 +250,15 @@
         android:id="@+id/linearLayout3"
         android:layout_width="408dp"
         android:layout_height="48dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginBottom="10dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:id="@+id/home2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -269,8 +270,8 @@
                 android:layout_height="24dp"
                 android:layout_weight="1"
                 android:background="#5EFFFFFF"
-                app:srcCompat="@drawable/home"
-                tools:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/home2"
+                tools:srcCompat="@drawable/home2" />
 
             <TextView
                 android:id="@+id/textView5"
@@ -283,7 +284,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/schdu"
+            android:id="@+id/schedul3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -308,7 +309,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/report4"
+            android:id="@+id/report8"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -319,8 +320,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/report"
-                tools:srcCompat="@drawable/report" />
+                app:srcCompat="@drawable/report2"
+                tools:srcCompat="@drawable/report2" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -333,6 +334,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/notify2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

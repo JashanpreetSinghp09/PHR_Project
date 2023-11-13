@@ -13,8 +13,7 @@ import android.widget.TextView;
 public class HomepageActivity extends AppCompatActivity {
 
     TextView fullName;
-    LinearLayout scheduleView;
-    LinearLayout reportView;
+    LinearLayout scheduleView, reportView, notificationView;
 
     ImageView profile;
     SharedPreferences sharedPreferences;
@@ -27,6 +26,7 @@ public class HomepageActivity extends AppCompatActivity {
         fullName = findViewById(R.id.textView2);
         scheduleView = findViewById(R.id.schedule);
         reportView = findViewById(R.id.report4);
+        notificationView = findViewById(R.id.notification);
         profile = findViewById(R.id.imageView);
 
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
@@ -44,6 +44,13 @@ public class HomepageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomepageActivity.this, ReportActivity.class));
+            }
+        });
+
+        notificationView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomepageActivity.this, NotificationsActivity.class));
             }
         });
 
