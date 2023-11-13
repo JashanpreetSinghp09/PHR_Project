@@ -11,7 +11,7 @@
     <!-- HorizontalScrollView for calendar days and dates -->
 
     <TextView
-        android:id="@+id/schedule"
+        android:id="@+id/schdu"
         android:layout_width="184dp"
         android:layout_height="79dp"
         android:layout_marginTop="4dp"
@@ -38,7 +38,7 @@
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.705"
-        app:layout_constraintStart_toEndOf="@+id/schedule"
+        app:layout_constraintStart_toEndOf="@+id/schdu"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/calender_icon" />
 
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/schedule">
+        app:layout_constraintTop_toBottomOf="@+id/schdu">
 
         <!-- HorizontalScrollView to enable horizontal scrolling -->
         <HorizontalScrollView
@@ -402,6 +402,290 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_width="319dp"
+        android:layout_height="492.98dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="14dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_84">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#7D96B5"
+                android:text="12:00PM  ---------------------------------------------------------------" />
+
+            <LinearLayout
+                android:id="@+id/appointments"
+                android:layout_width="match_parent"
+                android:layout_height="112.45dp"
+                android:background="@drawable/appointments"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="71.46dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="13.69dp"
+                    android:layout_marginTop="10.89dp"
+                    android:layout_marginBottom="10.61dp"
+                    android:background="@drawable/date"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_date1"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="21.51dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="12"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/text_day1"
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Tue"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="204dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="12:30 PM"
+                        android:textColor="#253141"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Dr. Mark Stevens"
+                        android:textColor="#253141"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Cadiologist"
+                        android:textColor="#253141"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#7D96B5"
+                android:text="10:00PM  ---------------------------------------------------------------" />
+
+            <LinearLayout
+                android:id="@+id/appointments"
+                android:layout_width="match_parent"
+                android:layout_height="112.45dp"
+                android:background="@drawable/appointments2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="71.46dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="13.69dp"
+                    android:layout_marginTop="10.89dp"
+                    android:layout_marginBottom="10.61dp"
+                    android:background="@drawable/date2"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_date2"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="21.51dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="12"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/text_day2"
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Tue"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="204dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="10:30 PM"
+                        android:textColor="#253141"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Dr. Shahin Alam"
+                        android:textColor="#253141"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Cadiologist"
+                        android:textColor="#253141"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="164dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#7D96B5"
+                android:text="11:00PM  ---------------------------------------------------------------" />
+
+            <LinearLayout
+                android:id="@+id/appointments"
+                android:layout_width="match_parent"
+                android:layout_height="112.45dp"
+                android:background="@drawable/appointments3"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="71.46dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="13.69dp"
+                    android:layout_marginTop="10.89dp"
+                    android:layout_marginBottom="10.61dp"
+                    android:background="@drawable/date3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/text_date3"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="21.51dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="12"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/text_day3"
+                        android:layout_width="match_parent"
+                        android:layout_height="22dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Tue"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="204dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:layout_marginTop="25dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="11:30 PM"
+                        android:textColor="#253141"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Dr. Mim Akhter"
+                        android:textColor="#253141"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="match_parent"
+                        android:layout_height="33dp"
+                        android:layout_marginLeft="16.85dp"
+                        android:fontFamily="@style/Theme.PHRApplication"
+                        android:text="Cadiologist"
+                        android:textColor="#253141"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="408dp"
         android:layout_height="48dp"
@@ -438,7 +722,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/schedule"
+            android:id="@+id/schedule2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

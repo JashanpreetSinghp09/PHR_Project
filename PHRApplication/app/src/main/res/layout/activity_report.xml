@@ -283,7 +283,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/schedule"
+            android:id="@+id/schdu"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
