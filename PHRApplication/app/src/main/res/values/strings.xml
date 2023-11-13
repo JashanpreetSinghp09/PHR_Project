@@ -16,6 +16,12 @@
     </string>
 
     <string name="schedule">
-Schedule
-</string>
+        Schedule
+    </string>
+
+    <style name="cybersecuri">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 </resources>
