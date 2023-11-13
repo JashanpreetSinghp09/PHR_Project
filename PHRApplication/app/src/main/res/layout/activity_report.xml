@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/report"
+        android:id="@+id/report4"
         android:layout_width="88dp"
         android:layout_height="36dp"
         android:layout_marginStart="76dp"
@@ -33,7 +33,7 @@
         android:background="@drawable/rectangle_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/report">
+        app:layout_constraintTop_toBottomOf="@+id/report4">
 
         <LinearLayout
             android:layout_width="109dp"
@@ -191,6 +191,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="320dp"
         android:layout_height="242dp"
         android:layout_marginStart="45dp"
@@ -234,7 +235,7 @@
                     android:layout_marginBottom="8dp"
                     android:text="General Health"
                     android:textSize="18dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -248,11 +249,13 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="408dp"
-        android:layout_height="70dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -263,31 +266,33 @@
             <ImageView
                 android:id="@+id/imageView11"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="24dp"
                 android:layout_weight="1"
                 android:background="#5EFFFFFF"
-                app:srcCompat="@drawable/homegreyfooter"
-                tools:srcCompat="@drawable/homegreyfooter" />
+                app:srcCompat="@drawable/home"
+                tools:srcCompat="@drawable/home" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:text="Home"
                 android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/schedule"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView12"
+                android:id="@+id/imageView_schedule"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="24dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/schedule"
                 tools:srcCompat="@drawable/schedule" />
@@ -295,13 +300,15 @@
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:text="Schedule"
                 android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/report4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -310,15 +317,16 @@
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="24dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/reportfooter"
-                tools:srcCompat="@drawable/reportfooter" />
+                app:srcCompat="@drawable/report"
+                tools:srcCompat="@drawable/report" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:text="Report"
                 android:textAlignment="center" />
@@ -333,7 +341,7 @@
             <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="24dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/notifications"
                 tools:srcCompat="@drawable/notifications" />
@@ -341,7 +349,8 @@
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:text="Notifications"
                 android:textAlignment="center" />
