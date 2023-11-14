@@ -21,7 +21,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     ImageView backButton;
 
-    LinearLayout payment, logout;
+    LinearLayout patient, payment, logout;
+
+    String emailId;
 
     private FirebaseAuth mAuth;
 
@@ -34,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
         email = findViewById(R.id.emailNaming);
         backButton = findViewById(R.id.imageView19);
         payment = findViewById(R.id.payment);
+        patient = findViewById(R.id.patients);
 
         logout = findViewById(R.id.logout);
         mAuth = FirebaseAuth.getInstance();
@@ -41,7 +44,16 @@ public class ProfileActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
 
         fullName.setText(sharedPreferences.getString("fullName", ""));
-        email.setText(sharedPreferences.getString("email", ""));
+
+        emailId = sharedPreferences.getString("email", "");
+
+        if (emailId.endsWith("clinics.ca")) {
+            patient.setVisibility(View.VISIBLE);
+            email.setText("Doctor");
+        } else {
+            patient.setVisibility(View.INVISIBLE);
+            email.setText(emailId);
+        }
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
