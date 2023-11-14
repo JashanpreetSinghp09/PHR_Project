@@ -1,5 +1,6 @@
 package com.example.phr_application;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,15 +24,119 @@ import java.util.Locale;
 public class ScheduleActivity extends AppCompatActivity {
 
     LinearLayout homeView, reportView, notificationView;
+    TextView textView_dr1, textView_spec1, textView_schedule1;
+    TextView textView_dr2, textView_spec2, textView_schedule2;
+    TextView textView_dr3, textView_spec3, textView_schedule3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        FirebaseApp.initializeApp(this);     // realtime DB firebase
+        DatabaseReference databaseReference, databaseReferenceD2, databaseReferenceD3 = FirebaseDatabase.getInstance().getReference("doctors");
 
         homeView = findViewById(R.id.home);
         reportView = findViewById(R.id.report5);
         notificationView = findViewById(R.id.notify);
+
+
+
+
+/*/
+           --------------------Firebase DB update in schedule activity code begins------------------------------------------------
+  */
+
+        // doctor's schedule
+        textView_dr1 = findViewById(R.id.textView_drName1);
+        textView_spec1 = findViewById(R.id.textView_specialty1);
+        textView_schedule1 = findViewById(R.id.textView18);
+
+        textView_dr2 = findViewById(R.id.textView22);
+        textView_spec2 = findViewById(R.id.textView23);
+        textView_schedule2 = findViewById(R.id.textView21);
+
+        textView_dr3 = findViewById(R.id.textView14);
+        textView_spec3 = findViewById(R.id.textView15);
+        textView_schedule3 = findViewById(R.id.textView13);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("doctors").child("d1");
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("name").getValue(String.class);
+                    String schedule = snapshot.child("schedule").getValue(String.class);
+                    String specialty = snapshot.child("specialty").getValue(String.class);
+
+                    // Now you can use the retrieved data as needed
+                    textView_dr1.setText(name);
+                    textView_spec1.setText(specialty);
+                    textView_schedule1.setText(schedule);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error if needed
+            }
+        });
+
+        // Retrieve data for doctor "d2"
+        databaseReferenceD2 = FirebaseDatabase.getInstance().getReference().child("doctors").child("d2");
+        databaseReferenceD2.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("name").getValue(String.class);
+                    String schedule = snapshot.child("schedule").getValue(String.class);
+                    String specialty = snapshot.child("specialty").getValue(String.class);
+
+                    // Now you can use the retrieved data as needed
+                    textView_dr2.setText(name);
+                    textView_spec2.setText(specialty);
+                    textView_schedule2.setText(schedule);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error if needed
+            }
+        });
+
+
+        // Retrieve data for doctor "d3"
+        databaseReferenceD3 = FirebaseDatabase.getInstance().getReference().child("doctors").child("d3");
+        databaseReferenceD3.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("name").getValue(String.class);
+                    String schedule = snapshot.child("schedule").getValue(String.class);
+                    String specialty = snapshot.child("specialty").getValue(String.class);
+
+                    // Now you can use the retrieved data as needed
+                    textView_dr3.setText(name);
+                    textView_spec3.setText(specialty);
+                    textView_schedule3.setText(schedule);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error if needed
+            }
+        });
+
+
+/*/
+        ----------------------------------Firebase DB update in schedule activity code ends--------------------------------------------------------------
+ */
+
 
         homeView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +170,6 @@ public class ScheduleActivity extends AppCompatActivity {
         int[] dayTextViewIds2 = {R.id.text_day1, R.id.text_day2, R.id.text_day3};
 
 
-
         // Get the current date and day
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
@@ -65,7 +177,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
         //Changing date of appointment ones
-        for(int i = 0; i < dateTextViewIds2.length; i++){
+        for (int i = 0; i < dateTextViewIds2.length; i++) {
 
             TextView textViewDate = findViewById(dateTextViewIds2[i]);
             TextView textViewDay = findViewById(dayTextViewIds2[i]);
@@ -73,10 +185,12 @@ public class ScheduleActivity extends AppCompatActivity {
             // Set the current date and day to the TextViews
             textViewDate.setText(dateFormat.format(calendar.getTime()));
             textViewDay.setText(dayOfWeekFormat.format(calendar.getTime()));
+
         }
 
+
         //Changing date of schedule list
-        for(int i = 0; i < dateTextViewIds.length; i++){
+        for (int i = 0; i < dateTextViewIds.length; i++) {
 
             TextView textViewDate = findViewById(dateTextViewIds[i]);
             TextView textViewDay = findViewById(dayTextViewIds[i]);
@@ -86,26 +200,53 @@ public class ScheduleActivity extends AppCompatActivity {
             textViewDay.setText(dayOfWeekFormat.format(calendar.getTime()));
 
             // increment the date for next day
-            calendar.add(Calendar.DAY_OF_MONTH,1);
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
-//        // Initialize the tv variable with tv objects
+
+
+
+/*  CODE BEGINS--------------------------------------------------------------------------------------
+/ This code below is to update or change the date and day of the schedule inside the rectangular linear layout, everytime a date textview is clicked on the calender to
+reflect the currently clicked day/date-------------------------------------------------------------
+ */
+//            // Attach click listeners to each date TextView
+//            for (int i = 0; i < dateTextViewIds.length; i++) {
+//                TextView textViewDate = findViewById(dateTextViewIds[i]);
+//                final int finalI = i;
+//                textViewDate.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        // Implement your onClick logic here
+//                        int clickedId = dateTextViewIds[finalI];
+//                        // Perform operations based on the clicked TextView ID
+//                        Toast.makeText(ScheduleActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
 //
+//                        // ...
+//                    }
+//                });
+//            }
 //
-//        TextView textViewDate1 = findViewById(R.id.textView_date1);
-//        TextView textViewDay1 = findViewById(R.id.textView_day1);
-//        TextView textViewDate2 = findViewById(R.id.textView_date2);
-//        TextView textViewDay2 = findViewById(R.id.textView_day2);
-//
-//        // Set the current date and day to the TextViews
-//        textViewDate1.setText(dateFormat.format(calendar.getTime()));
-//        textViewDay1.setText(dayOfWeekFormat.format(calendar.getTime()));
-//
-//        // increment the date for next day
-//        calendar.add(Calendar.DAY_OF_MONTH,1);
-//
-//        // set the day and date for next day(s)
-//        textViewDate2.setText(dateFormat.format(calendar.getTime()));
-//        textViewDay2.setText(dayOfWeekFormat.format(calendar.getTime()));
+//            // Attach click listeners to each day TextView
+//            for (int i = 0; i < dayTextViewIds.length; i++) {
+//                TextView textViewDay = findViewById(dayTextViewIds[i]);
+//                final int finalI = i;
+//                textViewDay.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        // Implement your onClick logic here
+//                        int clickedId = dayTextViewIds[finalI];
+//                        // Perform operations based on the clicked TextView ID
+//                        Toast.makeText(ScheduleActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+//                        // ...
+//                    }
+//                });
+//            }
+//        }
+
+        /*/
+        -----------------------------------------------------------------CODE ENDS----------------------------------------------------------------
+         */
 
     }
+
 }

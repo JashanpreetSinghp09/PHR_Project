@@ -39,6 +39,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth-ktx:22.1.2")
     implementation("com.google.firebase:firebase-database:20.2.2")
+//    implementation ("com.google.android.gms:play-services-auth:23.0.0")
+//    implementation ("com.google.gms:google-services:4.3.10")
     implementation ("org.web3j:core:5.0.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
