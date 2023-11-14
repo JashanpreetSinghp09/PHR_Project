@@ -426,7 +426,7 @@
                 android:text="12:00PM  ---------------------------------------------------------------" />
 
             <LinearLayout
-                android:id="@+id/appointments"
+                android:id="@+id/appointments1"
                 android:layout_width="match_parent"
                 android:layout_height="112.45dp"
                 android:background="@drawable/appointments"
@@ -469,7 +469,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView18"
                         android:layout_width="match_parent"
                         android:layout_height="19dp"
                         android:layout_marginLeft="16.85dp"
@@ -480,23 +480,23 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView_drName1"
                         android:layout_width="match_parent"
                         android:layout_height="34dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Dr. Mark Stevens"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="19sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView15"
+                        android:id="@+id/textView_specialty1"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Cadiologist"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -516,7 +516,7 @@
                 android:text="10:00PM  ---------------------------------------------------------------" />
 
             <LinearLayout
-                android:id="@+id/appointments"
+                android:id="@+id/appointments2"
                 android:layout_width="match_parent"
                 android:layout_height="112.45dp"
                 android:background="@drawable/appointments2"
@@ -559,7 +559,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/textView21"
                         android:layout_width="match_parent"
                         android:layout_height="19dp"
                         android:layout_marginLeft="16.85dp"
@@ -570,7 +570,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/textView14"
+                        android:id="@+id/textView22"
                         android:layout_width="match_parent"
                         android:layout_height="34dp"
                         android:layout_marginLeft="16.85dp"
@@ -581,7 +581,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView15"
+                        android:id="@+id/textView23"
                         android:layout_width="match_parent"
                         android:layout_height="33dp"
                         android:layout_marginLeft="16.85dp"

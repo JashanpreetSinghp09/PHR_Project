@@ -1,5 +1,6 @@
 package com.example.phr_application;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,13 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -15,15 +23,51 @@ import java.util.Locale;
 public class ScheduleActivity extends AppCompatActivity {
 
     LinearLayout homeView, reportView, notificationView;
+    TextView textView_dr1, textView_spec1, textView_schedule1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        FirebaseApp.initializeApp(this);     // realtime DB firebase
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("doctors" );
 
         homeView = findViewById(R.id.home);
         reportView = findViewById(R.id.report5);
         notificationView = findViewById(R.id.notify);
+        textView_dr1 = findViewById(R.id.textView_drName1);
+        textView_spec1 = findViewById(R.id.textView_specialty1);
+        textView_schedule1 = findViewById(R.id.textView18);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("doctors").child("d1");
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String name = snapshot.child("name").getValue(String.class);
+                    String schedule = snapshot.child("schedule").getValue(String.class);
+                    String specialty = snapshot.child("specialty").getValue(String.class);
+
+                    // Now you can use the retrieved data as needed
+                    textView_dr1.setText(name);
+                    textView_spec1.setText(specialty);
+                    textView_schedule1.setText(schedule);
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle error if needed
+            }
+        });
+
+
+
+
 
         homeView.setOnClickListener(new View.OnClickListener() {
             @Override
