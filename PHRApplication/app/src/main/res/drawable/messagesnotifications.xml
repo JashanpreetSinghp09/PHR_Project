@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Add the vector drawable directly -->
+    <item>
+        <vector
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:aapt="http://schemas.android.com/aapt"
+            android:width="56.73dp"
+            android:height="56dp"
+            android:viewportWidth="56.73"
+            android:viewportHeight="56"
+            >
+            <group>
+                <clip-path
+                    android:pathData="M20 0H36.7273C47.773 0 56.7273 8.95431 56.7273 20V36C56.7273 47.0457 47.773 56 36.7273 56H20C8.95431 56 0 47.0457 0 36V20C0 8.95431 8.95431 0 20 0Z"
+                    />
+                <path
+                    android:pathData="M0 0V56H56.7273V0"
+                    android:fillColor="#26F73859"
+                    />
+            </group>
+        </vector>
+    </item>
+    <!-- Add the image as the second layer -->
+    <item
+        android:drawable="@drawable/redchaticon"
+        android:width="25dp"
+        android:height="25dp"
+        android:gravity="center"
+        />
+
+</layer-list>
