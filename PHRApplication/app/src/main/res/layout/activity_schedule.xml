@@ -98,6 +98,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/rectangle_schedule"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -475,7 +476,7 @@
                         android:layout_marginLeft="16.85dp"
                         android:layout_marginTop="25dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="12:30 PM"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="14sp" />
 
@@ -565,7 +566,7 @@
                         android:layout_marginLeft="16.85dp"
                         android:layout_marginTop="25dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="10:30 PM"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="14sp" />
 
@@ -575,7 +576,7 @@
                         android:layout_height="34dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Dr. Shahin Alam"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="19sp"
                         android:textStyle="bold" />
@@ -586,7 +587,7 @@
                         android:layout_height="33dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Cadiologist"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -655,7 +656,7 @@
                         android:layout_marginLeft="16.85dp"
                         android:layout_marginTop="25dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="11:30 PM"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="14sp" />
 
@@ -665,7 +666,7 @@
                         android:layout_height="34dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Dr. Mim Akhter"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="19sp"
                         android:textStyle="bold" />
@@ -676,7 +677,7 @@
                         android:layout_height="33dp"
                         android:layout_marginLeft="16.85dp"
                         android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Cadiologist"
+                        android:text=""
                         android:textColor="#253141"
                         android:textSize="15sp" />
                 </LinearLayout>
