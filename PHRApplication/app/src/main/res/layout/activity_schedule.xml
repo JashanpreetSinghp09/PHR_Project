@@ -65,6 +65,8 @@
 
                 <!-- Custom layout for each date and time -->
                 <LinearLayout
+
+                    android:id="@+id/linlayout1"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -98,7 +100,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/rectangle_schedule"
+                    android:id="@+id/linlayout2"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -133,6 +135,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout3"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -166,6 +169,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout4"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -199,6 +203,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout5"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -232,6 +237,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout6"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -265,6 +271,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout7"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -298,6 +305,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout8"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -331,6 +339,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout9"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -364,6 +373,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linlayout10"
                     android:layout_width="70.46dp"
                     android:layout_height="84.62dp"
                     android:layout_marginLeft="13.69dp"
@@ -439,29 +449,17 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/date"
+
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/text_date1"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="21.51dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="12"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:id="@+id/doc_profileImg1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/profile">
 
-                    <TextView
-                        android:id="@+id/text_day1"
-                        android:layout_width="match_parent"
-                        android:layout_height="22dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Tue"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                    </ImageView>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -529,29 +527,16 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/date2"
+
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/text_date2"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="21.51dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="12"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:id="@+id/doc_profileImg2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/profile">
 
-                    <TextView
-                        android:id="@+id/text_day2"
-                        android:layout_width="match_parent"
-                        android:layout_height="22dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Tue"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                    </ImageView>
                 </LinearLayout>
 
                 <LinearLayout
@@ -619,29 +604,15 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/date3"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/text_date3"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="21.51dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="12"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="22sp" />
+                    <ImageView
+                        android:id="@+id/doc_profileImg3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/profile">
 
-                    <TextView
-                        android:id="@+id/text_day3"
-                        android:layout_width="match_parent"
-                        android:layout_height="22dp"
-                        android:fontFamily="@style/Theme.PHRApplication"
-                        android:text="Tue"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                    </ImageView>
                 </LinearLayout>
 
                 <LinearLayout

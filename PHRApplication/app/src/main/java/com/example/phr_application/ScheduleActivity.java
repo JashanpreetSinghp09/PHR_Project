@@ -164,11 +164,6 @@ public class ScheduleActivity extends AppCompatActivity {
         int[] dateTextViewIds = {R.id.textView_date1, R.id.textView_date2, R.id.textView_date3, R.id.textView_date4, R.id.textView_date5, R.id.textView_date6, R.id.textView_date7, R.id.textView_date8, R.id.textView_date9, R.id.textView_date10};
         int[] dayTextViewIds = {R.id.textView_day1, R.id.textView_day2, R.id.textView_day3, R.id.textView_day4, R.id.textView_day5, R.id.textView_day6, R.id.textView_day7, R.id.textView_day8, R.id.textView_day9, R.id.textView_day10};
 
-        //array of TextView IDs for dates and days in appointment list
-
-        int[] dateTextViewIds2 = {R.id.text_date1, R.id.text_date2, R.id.text_date3};
-        int[] dayTextViewIds2 = {R.id.text_day1, R.id.text_day2, R.id.text_day3};
-
 
         // Get the current date and day
         Calendar calendar = Calendar.getInstance();
@@ -176,17 +171,6 @@ public class ScheduleActivity extends AppCompatActivity {
         SimpleDateFormat dayOfWeekFormat = new SimpleDateFormat("EEE", Locale.getDefault());
 
 
-        //Changing date of appointment ones
-        for (int i = 0; i < dateTextViewIds2.length; i++) {
-
-            TextView textViewDate = findViewById(dateTextViewIds2[i]);
-            TextView textViewDay = findViewById(dayTextViewIds2[i]);
-
-            // Set the current date and day to the TextViews
-            textViewDate.setText(dateFormat.format(calendar.getTime()));
-            textViewDay.setText(dayOfWeekFormat.format(calendar.getTime()));
-
-        }
 
 
         //Changing date of schedule list
@@ -205,47 +189,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
 
 
-/*  CODE BEGINS--------------------------------------------------------------------------------------
-/ This code below is to update or change the date and day of the schedule inside the rectangular linear layout, everytime a date textview is clicked on the calender to
-reflect the currently clicked day/date-------------------------------------------------------------
- */
-//            // Attach click listeners to each date TextView
-//            for (int i = 0; i < dateTextViewIds.length; i++) {
-//                TextView textViewDate = findViewById(dateTextViewIds[i]);
-//                final int finalI = i;
-//                textViewDate.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        // Implement your onClick logic here
-//                        int clickedId = dateTextViewIds[finalI];
-//                        // Perform operations based on the clicked TextView ID
-//                        Toast.makeText(ScheduleActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-//
-//                        // ...
-//                    }
-//                });
-//            }
-//
-//            // Attach click listeners to each day TextView
-//            for (int i = 0; i < dayTextViewIds.length; i++) {
-//                TextView textViewDay = findViewById(dayTextViewIds[i]);
-//                final int finalI = i;
-//                textViewDay.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        // Implement your onClick logic here
-//                        int clickedId = dayTextViewIds[finalI];
-//                        // Perform operations based on the clicked TextView ID
-//                        Toast.makeText(ScheduleActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-//                        // ...
-//                    }
-//                });
-//            }
-//        }
 
-        /*/
-        -----------------------------------------------------------------CODE ENDS----------------------------------------------------------------
-         */
 
     }
 
