@@ -133,6 +133,14 @@ public class ScheduleActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
+                    //Resetting background color of the rest of the linear layouts
+                    for (LinearLayout ll : linearLayoutArray) {
+                        ll.setBackgroundResource(R.drawable.date1);
+                    }
+
+                    // Setting the background of the clicked LinearLayout
+                    linearLayoutArray[index].setBackgroundResource(R.drawable.date);
+
                     //Setting up the schedule for that day
                     View childView = linearLayoutArray[index].getChildAt(1);
                     setupDoctorSchedule(doctorKeys, ((TextView) childView).getText().toString());
@@ -144,6 +152,9 @@ public class ScheduleActivity extends AppCompatActivity {
         setupDoctorSchedule(doctorKeys, targetDay);
     }
 
+    /*
+    Method used for updating schedules for a specific day
+     */
     private void setupDoctorSchedule(String [] doctorKeys, String targetDay){
 
         // Reference to the "doctors" node in the Firebase database

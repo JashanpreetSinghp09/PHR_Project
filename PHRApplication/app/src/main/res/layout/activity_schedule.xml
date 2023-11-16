@@ -83,7 +83,7 @@
                         android:fontFamily="sans-serif-light"
                         android:text="12"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -94,7 +94,7 @@
                         android:fontFamily="sans-serif-light"
                         android:text="Tue"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
