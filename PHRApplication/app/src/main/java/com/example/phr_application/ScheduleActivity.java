@@ -29,8 +29,6 @@ public class ScheduleActivity extends AppCompatActivity {
     TextView textView_dr2, textView_spec2, textView_time2;
     TextView textView_dr3, textView_spec3, textView_time3;
     LinearLayout[] linearLayoutArray = new LinearLayout[10];
-
-    TextView viewingDate;
     String targetDay;
 
 
@@ -83,8 +81,6 @@ public class ScheduleActivity extends AppCompatActivity {
         textView_dr3 = findViewById(R.id.textView14);
         textView_spec3 = findViewById(R.id.textView15);
         textView_time3 = findViewById(R.id.textView13);
-
-        viewingDate = findViewById(R.id.viewingDate);
 
         //Initializing the Firebase realtime database
         FirebaseApp.initializeApp(this);
@@ -159,8 +155,6 @@ public class ScheduleActivity extends AppCompatActivity {
 
         // Reference to the "doctors" node in the Firebase database
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("doctors");
-
-        viewingDate.setText(targetDay);
 
         //Setting linearlayout to gone
         dr1.setVisibility(View.GONE);
