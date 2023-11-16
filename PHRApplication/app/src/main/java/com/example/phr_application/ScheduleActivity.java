@@ -28,7 +28,9 @@ public class ScheduleActivity extends AppCompatActivity {
     TextView textView_dr1, textView_spec1, textView_time1;
     TextView textView_dr2, textView_spec2, textView_time2;
     TextView textView_dr3, textView_spec3, textView_time3;
+    LinearLayout[] linearLayoutArray = new LinearLayout[10];
 
+    TextView viewingDate;
     String targetDay;
 
 
@@ -63,35 +65,6 @@ public class ScheduleActivity extends AppCompatActivity {
             }
         });
 
-
-        //Setting up the upcoming dates and days
-        // array of TextView IDs for dates and days
-        int[] dateTextViewIds = {R.id.textView_date1, R.id.textView_date2, R.id.textView_date3, R.id.textView_date4, R.id.textView_date5, R.id.textView_date6, R.id.textView_date7, R.id.textView_date8, R.id.textView_date9, R.id.textView_date10};
-        int[] dayTextViewIds = {R.id.textView_day1, R.id.textView_day2, R.id.textView_day3, R.id.textView_day4, R.id.textView_day5, R.id.textView_day6, R.id.textView_day7, R.id.textView_day8, R.id.textView_day9, R.id.textView_day10};
-
-        // Get the current date and day
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
-        SimpleDateFormat dayOfWeekFormat = new SimpleDateFormat("EEE", Locale.getDefault());
-        //targetDay = dayOfWeekFormat.format(Calendar.getInstance().getTime());
-        targetDay = "Sat";
-
-        //Changing date of schedule list
-        for (int i = 0; i < dateTextViewIds.length; i++) {
-
-            TextView textViewDate = findViewById(dateTextViewIds[i]);
-            TextView textViewDay = findViewById(dayTextViewIds[i]);
-
-            // Set the current date and day to the TextViews
-            textViewDate.setText(dateFormat.format(calendar.getTime()));
-            textViewDay.setText(dayOfWeekFormat.format(calendar.getTime()));
-
-            // increment the date for next day
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-
-
-
         //Setting up the schedules of doctors
         //Linear layout of each doctor
         dr1 = findViewById(R.id.dr1);
@@ -111,16 +84,74 @@ public class ScheduleActivity extends AppCompatActivity {
         textView_spec3 = findViewById(R.id.textView15);
         textView_time3 = findViewById(R.id.textView13);
 
+        viewingDate = findViewById(R.id.viewingDate);
+
         //Initializing the Firebase realtime database
         FirebaseApp.initializeApp(this);
-
-        // Reference to the "doctors" node in the Firebase database
-        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("doctors");
 
         // Array of doctor keys (d1, d2, d3)
         String[] doctorKeys = {"d1", "d2", "d3"};
 
-        //Setting linearlayout to invisible
+        //Setting up the calender dates for schedules
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd", Locale.getDefault());
+        SimpleDateFormat dayOfWeekFormat = new SimpleDateFormat("EEE", Locale.getDefault());
+
+        //Used for referring to each linearLayout
+        String linearLayouts = "linlayout";
+
+        for(int i = 0; i < linearLayoutArray.length; i++){
+
+            //Storing the reference of each date in the LinearLayout array
+            linearLayoutArray[i] = findViewById(getResources().getIdentifier(linearLayouts + (i + 1), "id", getPackageName()));
+
+            //Accessing the textView of each linearLayout for setting up the upcoming date and day
+            for (int j = 0; j < 2; j++) {
+                View childView = linearLayoutArray[i].getChildAt(j);
+
+                if (j == 0) {
+                    TextView date = (TextView) childView;
+                    date.setText(dateFormat.format(calendar.getTime()));
+                }
+
+                else{
+                    TextView day = (TextView) childView;
+                    day.setText(dayOfWeekFormat.format(calendar.getTime()));
+                    if(i == 0){
+
+                        targetDay = dayOfWeekFormat.format(calendar.getTime());
+                    }
+                }
+            }
+
+            // increment the date for next day
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+            //Setting up the onClick listener for each of the dates for updating schedule on click
+            final int index = i;
+            linearLayoutArray[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    //Setting up the schedule for that day
+                    View childView = linearLayoutArray[index].getChildAt(1);
+                    setupDoctorSchedule(doctorKeys, ((TextView) childView).getText().toString());
+                }
+            });
+        }
+
+        //Calling the schedule on create for current date
+        setupDoctorSchedule(doctorKeys, targetDay);
+    }
+
+    private void setupDoctorSchedule(String [] doctorKeys, String targetDay){
+
+        // Reference to the "doctors" node in the Firebase database
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("doctors");
+
+        viewingDate.setText(targetDay);
+
+        //Setting linearlayout to gone
         dr1.setVisibility(View.GONE);
         dr2.setVisibility(View.GONE);
         dr3.setVisibility(View.GONE);

@@ -106,7 +106,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -141,7 +141,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -175,7 +175,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -209,7 +209,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -243,7 +243,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -277,7 +277,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -311,7 +311,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -345,7 +345,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -379,7 +379,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -427,17 +427,26 @@
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:fontFamily="sans-serif-light"
             android:text="Upcoming appointments"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingDate"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:fontFamily="sans-serif-light"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/dr1"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -509,7 +518,7 @@
         <LinearLayout
             android:id="@+id/dr2"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -580,7 +589,7 @@
         <LinearLayout
             android:id="@+id/dr3"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="140dp"
             android:orientation="vertical">
 
             <LinearLayout
