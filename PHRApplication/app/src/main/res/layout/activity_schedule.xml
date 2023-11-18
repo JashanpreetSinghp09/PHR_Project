@@ -45,7 +45,7 @@
     <RelativeLayout
         android:id="@+id/frame_84"
         android:layout_width="385dp"
-        android:layout_height="158dp"
+        android:layout_height="120dp"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -83,7 +83,7 @@
                         android:fontFamily="sans-serif-light"
                         android:text="12"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -94,7 +94,7 @@
                         android:fontFamily="sans-serif-light"
                         android:text="Tue"
                         android:textAlignment="center"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -106,7 +106,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -141,7 +141,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -175,7 +175,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -209,7 +209,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -243,7 +243,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -277,7 +277,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -311,7 +311,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -345,7 +345,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -379,7 +379,7 @@
                     android:layout_marginLeft="13.69dp"
                     android:layout_marginTop="10.89dp"
                     android:layout_marginBottom="10.61dp"
-                    android:background="@drawable/rectangle_01"
+                    android:background="@drawable/date1"
                     android:orientation="vertical">
 
                     <TextView
@@ -414,7 +414,7 @@
 
     <LinearLayout
         android:layout_width="319dp"
-        android:layout_height="492.98dp"
+        android:layout_height="490dp"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="14dp"
@@ -424,17 +424,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frame_84">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView11"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
-            android:orientation="vertical">
+            android:layout_height="55dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Upcoming appointments"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#7D96B5"
-                android:text="12:00PM  ---------------------------------------------------------------" />
+        <LinearLayout
+            android:id="@+id/dr1"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/appointments1"
@@ -503,16 +507,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/dr2"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
+            android:layout_height="140dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#7D96B5"
-                android:text="10:00PM  ---------------------------------------------------------------" />
 
             <LinearLayout
                 android:id="@+id/appointments2"
@@ -580,16 +578,10 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/dr3"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
+            android:layout_height="140dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#7D96B5"
-                android:text="11:00PM  ---------------------------------------------------------------" />
 
             <LinearLayout
                 android:id="@+id/appointments"
