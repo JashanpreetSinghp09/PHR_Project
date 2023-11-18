@@ -3,7 +3,6 @@ package com.example.phr_application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.web3j.crypto.CipherException;
@@ -12,7 +11,6 @@ import org.web3j.crypto.WalletUtils;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.DefaultBlockParameterName;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 import org.web3j.protocol.http.HttpService;
 import org.web3j.utils.Convert;
 
