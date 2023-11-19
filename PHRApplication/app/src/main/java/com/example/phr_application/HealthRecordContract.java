@@ -1,5 +1,5 @@
 package com.example.phr_application;
-
+/*
 import org.web3j.abi.datatypes.Utf8String;
 import org.web3j.abi.datatypes.generated.Bytes32;
 import org.web3j.crypto.Credentials;
@@ -65,3 +65,4 @@ public class HealthRecordContract {
         return new Bytes32(Utf8String.fromUtf8String(value).getValue());
     }
 }
+*/

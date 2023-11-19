@@ -1,5 +1,5 @@
 package com.example.phr_application;
-
+/*
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -161,3 +161,4 @@ public class HealthRecordActivity extends AppCompatActivity {
         labResultsEditText.setText(healthRecord.component6());
     }
 }
+*/

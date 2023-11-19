@@ -1,5 +1,5 @@
 package com.example.phr_application;
-
+/*
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,3 +45,4 @@ public class HealthReportAdapter extends RecyclerView.Adapter<HealthReportAdapte
         }
     }
 }
+*/
