@@ -26,7 +26,7 @@ public class ViewLabResultsActivity extends AppCompatActivity {
         textViewLabResults = findViewById(R.id.textViewLabResults);
         buttonViewResults = findViewById(R.id.buttonViewResults);
 
-        labResultManager = new LabResultManager(userPrivateKey, "0x10f122974834f05776d1e181a045231fc40991bc3e1536e977e31fe415bc42f7");
+        labResultManager = new LabResultManager(userPrivateKey, "0xA6D2ca0953829aA3F4F8C40FcD0FeaF0a678fA09");
 
         buttonViewResults.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -192,8 +192,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="320dp"
-        android:layout_height="242dp"
+        android:layout_width="317dp"
+        android:layout_height="118dp"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="46dp"
         android:orientation="vertical"
@@ -203,11 +203,14 @@
 
 
         <LinearLayout
+            android:id="@+id/LabResult"
             android:layout_width="320dp"
             android:layout_height="93dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/latestreport"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
                 android:id="@+id/imageView10"
