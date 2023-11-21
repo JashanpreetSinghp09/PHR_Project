@@ -15,7 +15,7 @@ public class HomepageActivity extends AppCompatActivity {
     TextView fullName;
     LinearLayout scheduleView, reportView, notificationView;
 
-    ImageView profile;
+    ImageView profile, medication_reminder;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -28,6 +28,7 @@ public class HomepageActivity extends AppCompatActivity {
         reportView = findViewById(R.id.report4);
         notificationView = findViewById(R.id.notification);
         profile = findViewById(R.id.imageView);
+        medication_reminder = findViewById(R.id.imageView4);
 
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
 
@@ -58,6 +59,13 @@ public class HomepageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(HomepageActivity.this, ProfileActivity.class));
+            }
+        });
+
+        medication_reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomepageActivity.this, ReminderActivity.class));
             }
         });
     }

@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_logo1"
+        android:layout_width="98dp"
+        android:layout_height="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="12dp"
+
+        app:srcCompat="@drawable/medicine_reminder" />
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="288dp"
+        android:layout_height="77dp"
+        android:layout_below="@+id/imageView_logo1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="-91dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Medication Reminder"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editTextMedicationName"
+        android:layout_width="395dp"
+        android:layout_height="127dp"
+        android:layout_below="@id/textViewTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Enter Medication Name"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/textViewDateTime"
+        android:layout_width="208dp"
+        android:layout_height="68dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="199dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Select Date and Time"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="69dp"
+        android:layout_height="72dp"
+        android:layout_below="@+id/editTextMedicationName"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="50dp"
+        android:layout_toStartOf="@+id/buttonSetDateTime"
+        app:srcCompat="@drawable/set_timer" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="71dp"
+        android:layout_height="77dp"
+        android:layout_below="@+id/imageView23"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="48dp"
+        android:layout_toStartOf="@+id/buttonSetDateTime"
+        app:srcCompat="@drawable/reminder_btn" />
+
+    <Button
+        android:id="@+id/buttonSetDateTime"
+        android:layout_width="211dp"
+        android:layout_height="79dp"
+        android:layout_below="@id/textViewDateTime"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="342dp"
+        android:layout_marginEnd="30dp"
+        android:text="Set Date/Time"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonRemindMe"
+        android:layout_width="219dp"
+        android:layout_height="81dp"
+        android:layout_alignStart="@+id/buttonSetDateTime"
+        android:layout_alignEnd="@+id/buttonSetDateTime"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginEnd="-5dp"
+        android:layout_marginBottom="184dp"
+        android:text="Remind Me"
+        android:textSize="24sp" />
+
+</RelativeLayout>
