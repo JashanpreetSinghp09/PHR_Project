@@ -89,7 +89,7 @@ public class ReminderActivity extends AppCompatActivity {
                                                         scheduleNotification(notification, delay);
                                                     } else {
                                                         // Handle invalid date or time selection
-                                                        // You can display a toast or a message indicating that the date/time is invalid
+                                                        Toast.makeText(ReminderActivity.this, "Invalid Date/Time selected..", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
                                             }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false);
@@ -124,9 +124,9 @@ public class ReminderActivity extends AppCompatActivity {
         // Calculate the delay between current time and selected time
         long delay = selectedTimeInMillis - currentTimeInMillis;
 
-        // Ensure the delay is positive (in case the selected time is in the past)
+        // Ensure the delay is positive
         if (delay < 0) {
-            // Set delay to a minimum value or handle it as per your logic
+            //
             delay = 0;
         }
 
@@ -146,7 +146,7 @@ public class ReminderActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default")
                 .setContentTitle("Medication Reminder")
                 .setContentText(content)
-                .setSmallIcon(R.drawable.reminder_btn) // Replace with your notification icon
+                .setSmallIcon(R.drawable.reminder_btn)
                 .setAutoCancel(true);
 
         return builder.build();
