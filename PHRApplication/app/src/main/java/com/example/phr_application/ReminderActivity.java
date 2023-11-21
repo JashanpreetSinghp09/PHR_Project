@@ -108,7 +108,29 @@ public class ReminderActivity extends AppCompatActivity {
         buttonRemindMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Get medication name entered by the user
+                String medicationName = editTextMedicationName.getText().toString();
 
+                if (!medicationName.isEmpty()) {
+                    // Calculate the delay for the notification based on the selected date and time
+                    long delay = calculateDelayForNotification(selectedYear, selectedMonth, selectedDay, selectedHour, selectedMinute);
+
+                    if (delay > 0) {
+                        // Schedule the notification
+                        Notification notification = getNotification("Time to take " + medicationName + "!");
+                        scheduleNotification(notification, delay);
+
+                        // Optionally, display a confirmation message to the user
+                        Toast.makeText(ReminderActivity.this, "Reminder set for " + medicationName, Toast.LENGTH_LONG).show();
+                    } else {
+                        // Handle invalid date or time selection
+                        Toast.makeText(ReminderActivity.this, "Invalid date/time selection", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Handle empty medication name
+
+                    Toast.makeText(ReminderActivity.this, "Please enter a medication name", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -127,6 +149,7 @@ public class ReminderActivity extends AppCompatActivity {
         // Ensure the delay is positive
         if (delay < 0) {
             //
+            Toast.makeText(this, "Invalid time selected.", Toast.LENGTH_SHORT).show();
             delay = 0;
         }
 
@@ -137,7 +160,17 @@ public class ReminderActivity extends AppCompatActivity {
         Intent notificationIntent = new Intent(this, NotificationPublisher.class);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
         notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
-        pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        //pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        PendingIntent pendingIntent;
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+
+            pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        } else {
+            pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        }
+
 
         alarmManager.set(AlarmManager.RTC_WAKEUP, delay, pendingIntent);
     }
