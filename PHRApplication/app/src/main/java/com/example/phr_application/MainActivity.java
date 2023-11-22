@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("email", email);
+                            editor.putString("password", password);
                             editor.putString("address", address);
                             editor.putString("balance", balance);
                             editor.apply();
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             String fileName = "localWalletAddress.txt";
 
                             // Specify the content to be written to the file
-                            String content = "address: " + address +"\nbalance: " + balance;
+                            String content = "walletName:"+ actualWalletName + "\naddress: " + address +"\nbalance: " + balance;
 
                             // Get the public external storage directory
                             File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);

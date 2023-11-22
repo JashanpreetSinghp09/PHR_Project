@@ -32,7 +32,7 @@ public class UploadHealthRecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String inputData = upload.getText().toString();
+                String inputData = upload.getText().toString().trim();
                 walletManager.deploy(new WalletManager.DeployCallback() {
                     @Override
                     public void onDeploySuccess(String contractAddress) {
