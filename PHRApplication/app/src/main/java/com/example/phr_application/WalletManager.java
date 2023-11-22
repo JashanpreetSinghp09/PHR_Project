@@ -338,6 +338,8 @@ public class WalletManager {
 
     public interface WalletNameCallback {
         void onUserNotFound();
+
+        void onWalletNameRetrieved(String fullName, String walletName);
     }
 
     void setWalletName(String userEmail, WalletNameCallback callback) {
@@ -353,8 +355,10 @@ public class WalletManager {
                         String userKey = userSnapshot.getKey();
 
                         // Get the walletName from the user key
-                        String actualWalletName = userSnapshot.child(userKey).child("walletName").getValue(String.class);
-                        setWalletName2(actualWalletName);
+                        String actualWalletName = userSnapshot.child("walletName").getValue(String.class);
+                        String actualFullName = userSnapshot.child("fullName").getValue(String.class);
+                        walletName = actualWalletName;
+                        callback.onWalletNameRetrieved(actualFullName, walletName);
                         return;
                     }
                 }
@@ -367,62 +371,5 @@ public class WalletManager {
                 System.out.println("Error: " + databaseError.getMessage());
             }
         });
-    }
-
-    // Setter methods
-
-    public void setWalletName2(String walletName) {
-        this.walletName = walletName;
-    }
-
-    public void setPasswordString(String passwordString) {
-        this.passwordString = passwordString;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setBalance(String balance) {
-        this.balance = balance;
-    }
-
-    public void setContractAddress(String contractAddress) {
-        this.contractAddress = contractAddress;
-    }
-
-    // Getter methods
-
-    public String getWalletName() {
-        return walletName;
-    }
-
-    public String getPasswordString() {
-        return passwordString;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getBalance() {
-        return balance;
-    }
-
-    public String getContractAddress() {
-        return contractAddress;
-    }
-
-
-
-
-    Credentials getCredentials() {
-
-        return credentials;
-    }
-
-    Web3j getWeb3j(){
-
-        return web3j;
     }
 }

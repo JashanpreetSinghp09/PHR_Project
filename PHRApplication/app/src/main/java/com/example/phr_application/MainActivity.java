@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -18,33 +17,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.web3j.crypto.CipherException;
-import org.web3j.crypto.Credentials;
-import org.web3j.crypto.WalletUtils;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetBalance;
-import org.web3j.protocol.core.methods.response.Web3ClientVersion;
-import org.web3j.protocol.http.HttpService;
-import org.web3j.utils.Convert;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.security.Provider;
-import java.security.Security;
-import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,9 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SharedPreferences sharedPreferences;
 
     private WalletManager walletManager;
-
-
-
+    private String actualWalletName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void userLogin() {
 
+        sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
+
         /*/
         ensuring correct information is added for log in
          */
@@ -136,14 +113,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        walletManager.setWalletName(email, () -> {
-            // Handle the case when no user is found with the specified email
-            Toast.makeText(MainActivity.this, "Wallet not found", Toast.LENGTH_LONG).show();
-            finish();
-        });
-        Toast.makeText(MainActivity.this, "Wallet name set", Toast.LENGTH_LONG).show();
-        String walletName = sharedPreferences.getString("walletName", "");
+        walletManager.setWalletName(email, new WalletManager.WalletNameCallback() {
+            @Override
+            public void onUserNotFound() {
 
+                // Handle the case when no user is found with the specified email
+                Toast.makeText(MainActivity.this, "Wallet not found", Toast.LENGTH_LONG).show();
+                finish();
+            }
+
+            @Override
+            public void onWalletNameRetrieved(String fullName, String walletName) {
+
+
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                actualWalletName = walletName;
+                editor.putString("fullName", fullName);
+                editor.putString("walletName", walletName);
+                editor.apply();
+                Toast.makeText(MainActivity.this, walletName, Toast.LENGTH_LONG).show();
+            }
+        });
 
         /*/
         validating user login task using fire base authenticator
@@ -153,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
 
-                    walletManager.loadWalletCredentials(password, walletName, new WalletManager.LoadWalletCallback(){
+                    walletManager.loadWalletCredentials(password, actualWalletName, new WalletManager.LoadWalletCallback(){
 
                         @Override
                         public void onWalletLoaded(String address, String balance, String message) {

@@ -134,7 +134,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                     editor.putString("email", email);
                                     editor.putString("fullName", fullName);
                                     editor.apply();
-                                    storeUserDataInFirebase(email, walletName);
+                                    storeUserDataInFirebase(email, walletName, fullName);
 
                                     // Handle successful wallet generation
                                     Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
@@ -159,18 +159,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
-    private void storeUserDataInFirebase(String email, String walletName) {
+    private void storeUserDataInFirebase(String email, String walletName, String fullName) {
         // Generating a unique key for the user in the "users" collection
 
         DatabaseReference usersReference = FirebaseDatabase.getInstance().getReference("users");
         String userKey = usersReference.push().getKey();
-
-        User user = new User(email, walletName);
 
         // Storing email as key and email as value
         usersReference.child(userKey).child("email").setValue(email);
 
         // Storing walletName as key and walletName as value
         usersReference.child(userKey).child("walletName").setValue(walletName);
+
+        // Storing fullName as key and walletName as value
+        usersReference.child(userKey).child("fullName").setValue(fullName);
     }
 }
