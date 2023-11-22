@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class ReportActivity extends AppCompatActivity {
 
-    LinearLayout homeView, scheduleView, notificationView;
+    LinearLayout homeView, scheduleView, notificationView, healthRecord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class ReportActivity extends AppCompatActivity {
         homeView = findViewById(R.id.home2);
         scheduleView = findViewById(R.id.schedul3);
         notificationView = findViewById(R.id.notify2);
+        healthRecord = findViewById(R.id.healthRecord);
 
         homeView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,13 @@ public class ReportActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ReportActivity.this, NotificationsActivity.class));
+            }
+        });
+
+        healthRecord.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ReportActivity.this, UploadHealthRecordActivity.class));
             }
         });
     }
