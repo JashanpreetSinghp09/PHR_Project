@@ -157,6 +157,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 editor.putString("balance", balance);
                                 editor.apply();
 
+                                //Writing the local wallet address to the system
+                                String fileName = "localWalletAddress.txt";
+
+                                // Specify the content to be written to the file
+                                String content = "address: " + address +"\nbalance: " + balance;
+
+                                // Get the public external storage directory
+                                File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+
+                                // Create the file object
+                                File file = new File(directory, fileName);
+
+                                // Try to create the file and write the content
+                                try (FileOutputStream fos = new FileOutputStream(file)) {
+                                    // Convert the string content to bytes
+                                    byte[] contentBytes = content.getBytes();
+
+                                    // Write the bytes to the file
+                                    fos.write(contentBytes);
+
+                                    System.out.println("File created and content written to external storage.");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
                                 // Handle successful wallet loading
                                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
                                 // Redirect to the login page

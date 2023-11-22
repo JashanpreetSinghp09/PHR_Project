@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
@@ -45,14 +46,17 @@ public class WalletManager {
     private WalletManager(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("WalletPreferences", Context.MODE_PRIVATE);
 
-        File externalStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
-        if (externalStorageDir != null) {
-            walletDirectory = externalStorageDir.getAbsolutePath();
+        // For API level 29 and higher, use getExternalFilesDir() for app-specific directories
+        File externalFilesDir = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+
+        if (externalFilesDir != null) {
+            walletDirectory = externalFilesDir.getAbsolutePath();
         } else {
             // Handle the case where external storage is not available or accessible
             Log.e("WalletManager", "External storage not available or accessible.");
             // You might want to use the internal storage as a fallback or take appropriate action.
         }
+
 
         final Provider provider = Security.getProvider(BouncyCastleProvider.PROVIDER_NAME);
         if (provider == null || !provider.getClass().equals(BouncyCastleProvider.class)) {
