@@ -154,6 +154,7 @@ public class WalletManager {
                 return "Wallet loaded successfully!";
             } catch (IOException | ExecutionException | CipherException | InterruptedException e) {
                 e.printStackTrace();
+                errorMessage = e.getMessage(); // Add this line to capture the error message
                 return "Error: " + e.getMessage();
             }
         }
@@ -190,7 +191,8 @@ public class WalletManager {
         protected String doInBackground(Void... voids) {
             try {
 
-                StringStorage contract = StringStorage.deploy(web3j, getTransactionManager(), customGasProvider).send();
+                TransactionManager transactionManager = getTransactionManager();
+                StringStorage contract = StringStorage.deploy(web3j, transactionManager, customGasProvider).send();
                 // Get the contract address
                 contractAddress = contract.getContractAddress();
                 return contractAddress;
@@ -318,7 +320,7 @@ public class WalletManager {
 
             // Encode the function and send the transaction
             String encodedFunction = FunctionEncoder.encode(function);
-            contract.uploadString(encodedFunction).send();
+            contract.uploadString(newString).send();
         } catch (Exception e) {
             Log.e("error", "Error uploading string: " + e.getMessage());
         }
