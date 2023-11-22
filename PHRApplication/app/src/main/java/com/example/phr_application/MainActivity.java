@@ -21,8 +21,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.web3j.crypto.CipherException;
@@ -132,7 +136,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-
+        walletManager.setWalletName(email, () -> {
+            // Handle the case when no user is found with the specified email
+            Toast.makeText(MainActivity.this, "Wallet not found", Toast.LENGTH_LONG).show();
+            finish();
+        });
+        Toast.makeText(MainActivity.this, "Wallet name set", Toast.LENGTH_LONG).show();
+        String walletName = sharedPreferences.getString("walletName", "");
 
 
         /*/
@@ -143,60 +153,55 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
 
-                    String storedPassword = sharedPreferences.getString("password", "");
-                    String storedWalletName = sharedPreferences.getString("walletName", "");
+                    walletManager.loadWalletCredentials(password, walletName, new WalletManager.LoadWalletCallback(){
 
-                    if (!storedWalletName.isEmpty()) {
-                        walletManager.loadWalletCredentials(storedPassword, storedWalletName, new WalletManager.LoadWalletCallback(){
+                        @Override
+                        public void onWalletLoaded(String address, String balance, String message) {
 
-                            @Override
-                            public void onWalletLoaded(String address, String balance, String message) {
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("email", email);
+                            editor.putString("address", address);
+                            editor.putString("balance", balance);
+                            editor.apply();
 
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString("address", address);
-                                editor.putString("balance", balance);
-                                editor.apply();
+                            //Writing the local wallet address to the system
+                            String fileName = "localWalletAddress.txt";
 
-                                //Writing the local wallet address to the system
-                                String fileName = "localWalletAddress.txt";
+                            // Specify the content to be written to the file
+                            String content = "address: " + address +"\nbalance: " + balance;
 
-                                // Specify the content to be written to the file
-                                String content = "address: " + address +"\nbalance: " + balance;
+                            // Get the public external storage directory
+                            File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-                                // Get the public external storage directory
-                                File directory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+                            // Create the file object
+                            File file = new File(directory, fileName);
 
-                                // Create the file object
-                                File file = new File(directory, fileName);
+                            // Try to create the file and write the content
+                            try (FileOutputStream fos = new FileOutputStream(file)) {
+                                // Convert the string content to bytes
+                                byte[] contentBytes = content.getBytes();
 
-                                // Try to create the file and write the content
-                                try (FileOutputStream fos = new FileOutputStream(file)) {
-                                    // Convert the string content to bytes
-                                    byte[] contentBytes = content.getBytes();
+                                // Write the bytes to the file
+                                fos.write(contentBytes);
 
-                                    // Write the bytes to the file
-                                    fos.write(contentBytes);
-
-                                    System.out.println("File created and content written to external storage.");
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                                // Handle successful wallet loading
-                                Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
-                                // Redirect to the login page
-                                startActivity(new Intent(MainActivity.this, HomepageActivity.class));
+                                System.out.println("File created and content written to external storage.");
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
 
-                            @Override
-                            public void onWalletLoadFailed(String errorMessage) {
+                            // Handle successful wallet loading
+                            Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                            // Redirect to the login page
+                            startActivity(new Intent(MainActivity.this, HomepageActivity.class));
+                        }
 
-                                // Handle wallet generation failure
-                                Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
+                        @Override
+                        public void onWalletLoadFailed(String errorMessage) {
 
+                            // Handle wallet generation failure
+                            Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_LONG).show();
+                        }
+                    });
 
                 }else {
                     Toast.makeText(MainActivity.this, "Login Failed!, Please check credentials", Toast.LENGTH_LONG).show();

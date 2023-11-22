@@ -14,8 +14,11 @@ import android.util.*;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
@@ -124,12 +127,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 @Override
                                 public void onWalletGenerated(String walletName, String password, String message) {
 
+                                    sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putString("walletName", walletName);
                                     editor.putString("password", password);
                                     editor.putString("email", email);
                                     editor.putString("fullName", fullName);
                                     editor.apply();
+                                    storeUserDataInFirebase(email, walletName);
 
                                     // Handle successful wallet generation
                                     Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
@@ -154,5 +159,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    private void storeUserDataInFirebase(String email, String walletName) {
+        // Generating a unique key for the user in the "users" collection
 
+        DatabaseReference usersReference = FirebaseDatabase.getInstance().getReference("users");
+        String userKey = usersReference.push().getKey();
+
+        User user = new User(email, walletName);
+
+        // Storing email as key and email as value
+        usersReference.child(userKey).child("email").setValue(email);
+
+        // Storing walletName as key and walletName as value
+        usersReference.child(userKey).child("walletName").setValue(walletName);
+    }
 }

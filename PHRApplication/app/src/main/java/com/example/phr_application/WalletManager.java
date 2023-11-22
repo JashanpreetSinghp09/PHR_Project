@@ -8,6 +8,13 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.web3j.abi.FunctionEncoder;
 import org.web3j.crypto.CipherException;
@@ -328,6 +335,84 @@ public class WalletManager {
             return "";
         }
     }
+
+    public interface WalletNameCallback {
+        void onUserNotFound();
+    }
+
+    void setWalletName(String userEmail, WalletNameCallback callback) {
+        DatabaseReference usersReference = FirebaseDatabase.getInstance().getReference("users");
+        Query query = usersReference.orderByChild("email").equalTo(userEmail);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        // Get the user key
+                        String userKey = userSnapshot.getKey();
+
+                        // Get the walletName from the user key
+                        String actualWalletName = userSnapshot.child(userKey).child("walletName").getValue(String.class);
+                        setWalletName2(actualWalletName);
+                        return;
+                    }
+                }
+                // No user found with the specified email
+                callback.onUserNotFound();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
+    }
+
+    // Setter methods
+
+    public void setWalletName2(String walletName) {
+        this.walletName = walletName;
+    }
+
+    public void setPasswordString(String passwordString) {
+        this.passwordString = passwordString;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public void setContractAddress(String contractAddress) {
+        this.contractAddress = contractAddress;
+    }
+
+    // Getter methods
+
+    public String getWalletName() {
+        return walletName;
+    }
+
+    public String getPasswordString() {
+        return passwordString;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public String getContractAddress() {
+        return contractAddress;
+    }
+
 
 
 
