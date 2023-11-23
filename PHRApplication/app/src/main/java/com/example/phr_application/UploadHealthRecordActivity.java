@@ -24,31 +24,41 @@ import java.io.FileOutputStream;
 
 public class UploadHealthRecordActivity extends AppCompatActivity {
 
-    private EditText upload;
     private Button uploadButton;
     private WalletManager walletManager;
 
     SharedPreferences sharedPreferences;
-    private String email, contractAddress;
+    private String email;
+
+    private String inputData = "";
+
+    private EditText allergy, currentMedication, immunization, currentSymptoms, diagnosis, treatmentPlan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_health_record);
 
-        upload = findViewById(R.id.uploadingRec);
+        allergy = findViewById(R.id.allergy);
+        currentMedication = findViewById(R.id.medication);
+        immunization = findViewById(R.id.immunization);
+        currentSymptoms = findViewById(R.id.symptoms);
+        diagnosis = findViewById(R.id.diagnosis);
+        treatmentPlan = findViewById(R.id.treatment);
+
+
         uploadButton = findViewById(R.id.uploadingButton);
+
         walletManager = WalletManager.getInstance(this);
-
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
-
         email = sharedPreferences.getString("email", "");
 
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String inputData = upload.getText().toString().trim();
+                //Setting up the data for input
+                inputData = concatenateEditTextWithNewline(allergy, currentMedication, immunization, currentSymptoms, diagnosis, treatmentPlan) ;
 
                 //Retrieve contractAddress associated with the account from Firebase
                 walletManager.retrieveContractAddress(email, new WalletManager.ContractAddressCallback() {
@@ -208,5 +218,20 @@ public class UploadHealthRecordActivity extends AppCompatActivity {
                 Log.e("Error:", databaseError.getMessage());
             }
         });
+    }
+
+    String concatenateEditTextWithNewline(EditText... editTexts) {
+        StringBuilder concatenatedText = new StringBuilder();
+
+        for (EditText editText : editTexts) {
+            // Append the text of the current EditText to the result
+            concatenatedText.append(editText.getText().toString().trim());
+
+            // Add a newline character to separate EditText values
+            concatenatedText.append("\n");
+        }
+
+        // Convert StringBuilder to String and return the result
+        return concatenatedText.toString();
     }
 }
