@@ -51,11 +51,9 @@ public class WalletManager {
     private static CustomGasProvider customGasProvider = new CustomGasProvider();
 
     private WalletManager(Context context) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("WalletPreferences", Context.MODE_PRIVATE);
 
-        // For API level 29 and higher, use getExternalFilesDir() for app-specific directories
+        //Setting an address in the android device to store wallet and other files
         File externalFilesDir = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
-
         if (externalFilesDir != null) {
             walletDirectory = externalFilesDir.getAbsolutePath();
         } else {
@@ -71,6 +69,7 @@ public class WalletManager {
             Security.insertProviderAt(new BouncyCastleProvider(), 1);
         }
 
+        //Building the blockchain network
         web3j = Web3j.build(new HttpService("https://sepolia.infura.io/v3/022a177facaa48488bff31b260295554"));
     }
 
@@ -370,8 +369,46 @@ public class WalletManager {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                System.out.println("Error: " + databaseError.getMessage());
+                Log.e("Error:", databaseError.getMessage());
             }
         });
     }
+
+    /*
+    Method for retrieving contractAddress from firebase
+     */
+    public interface ContractAddressCallback {
+
+        void onUserNotFound();
+        void onContractAddressRetrieved(String contractAddress);
+    }
+
+    void retrieveContractAddress(String email, ContractAddressCallback callback) {
+        DatabaseReference usersReference = FirebaseDatabase.getInstance().getReference("users");
+
+        Query query = usersReference.orderByChild("email").equalTo(email);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String userKey = dataSnapshot.getChildren().iterator().next().getKey();
+                    if (dataSnapshot.child(userKey).hasChild("contractAddress")) {
+                        contractAddress = dataSnapshot.child(userKey).child("contractAddress").getValue(String.class);
+                        callback.onContractAddressRetrieved(contractAddress);
+                    }
+                    else{
+                        callback.onContractAddressRetrieved("");
+                    }
+                } else {
+                    callback.onUserNotFound();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("Error:", databaseError.getMessage());
+            }
+        });
+    }
+
 }

@@ -155,8 +155,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 });
-
-
     }
 
     private void storeUserDataInFirebase(String email, String walletName, String fullName) {
