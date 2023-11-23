@@ -45,7 +45,7 @@ public class ReportActivity extends AppCompatActivity {
         healthRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ReportActivity.this, UploadHealthRecordActivity.class));
+                startActivity(new Intent(ReportActivity.this, HealthRecordActivity.class));
             }
         });
     }

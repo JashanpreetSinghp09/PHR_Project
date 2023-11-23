@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UploadHealthRecordActivity">
+    tools:context=".HealthRecordActivity">
 
     <TextView
         android:id="@+id/textView26"
@@ -23,7 +23,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="500dp"
         android:layout_centerInParent="true"
         android:layout_marginTop="31dp"
         android:orientation="vertical"
@@ -32,22 +32,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26">
 
-        <EditText
-            android:id="@+id/uploadingRec"
-            android:layout_width="377dp"
-            android:layout_height="54dp"
-            android:layout_marginTop="119dp"
-            android:layout_marginEnd="18dp"
-            android:ems="10"
-            android:hint="Enter Health Record"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
         <Button
-            android:id="@+id/uploadingButton"
+            android:id="@+id/uploadHealth"
             android:layout_width="377dp"
             android:layout_height="75dp"
             android:layout_marginTop="150dp"
@@ -55,5 +41,17 @@
             android:text="Upload Health Record"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="286dp" />
+
+        <Button
+            android:id="@+id/viewHealth"
+            android:layout_width="377dp"
+            android:layout_height="75dp"
+            android:text="View Health Record"
+            tools:layout_editor_absoluteX="-35dp"
+            tools:layout_editor_absoluteY="368dp" />
+
+
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

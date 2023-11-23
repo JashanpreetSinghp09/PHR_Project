@@ -204,8 +204,8 @@
 
         <LinearLayout
             android:id="@+id/healthRecord"
-            android:layout_width="320dp"
-            android:layout_height="93dp"
+            android:layout_width="match_parent"
+            android:layout_height="94dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/latestreport"
             android:orientation="horizontal">
@@ -214,36 +214,20 @@
                 android:id="@+id/imageView10"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="23dp"
                 android:layout_marginTop="14.82dp"
-                android:layout_marginRight="16dp"
-                android:layout_weight="1"
                 android:background="@drawable/general" />
 
-            <LinearLayout
-                android:layout_width="128dp"
-                android:layout_height="47dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="14.82dp"
-                android:layout_marginRight="101dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="128dp"
-                    android:layout_height="21dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="General Health"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="60dp"
-                    android:layout_height="18dp"
-                    android:text="8 files" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="180dp"
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="17dp"
+                android:text="Health Record"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
