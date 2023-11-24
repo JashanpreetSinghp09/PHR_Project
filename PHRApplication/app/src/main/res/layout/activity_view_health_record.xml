@@ -21,27 +21,116 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/viewingHealth"
-        android:layout_width="332dp"
-        android:layout_height="388dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-    <Button
-        android:id="@+id/viewingButton"
-        android:layout_width="377dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="84dp"
-        android:text="View Health Record"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="13dp"
+        android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26">
+
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Allergy Name:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingAllergy"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Current Medication:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingMedication"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Immunization Name:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingImmunization"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Current Symptoms:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingSymptoms"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Diagnosis Name:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingDiagnosis"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:text="Treatment Plan:"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/viewingTreatment"
+            android:layout_width="380dp"
+            android:layout_height="40dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/viewingButton"
+            android:layout_width="380dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:text="View Health Record"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
