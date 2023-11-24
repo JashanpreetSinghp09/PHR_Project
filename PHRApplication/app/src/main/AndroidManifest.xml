@@ -29,6 +29,9 @@
         android:theme="@style/Theme.PHRApplication"
         tools:targetApi="31">
         <activity
+            android:name=".DoctorDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".HealthRecordActivity"
             android:exported="false" />
         <activity
