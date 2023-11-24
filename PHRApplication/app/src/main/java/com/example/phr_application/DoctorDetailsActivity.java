@@ -34,7 +34,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         System.out.println(sharedPreferences.getString("DoctorName", ""));
         //Initializing the Firebase realtime database
         FirebaseApp.initializeApp(DoctorDetailsActivity.this);
-        setupDoctorDetails(sharedPreferences.getString("DoctorName", ""));
+//        setupDoctorDetails(sharedPreferences.getString("DoctorName", ""));
 
 
     }

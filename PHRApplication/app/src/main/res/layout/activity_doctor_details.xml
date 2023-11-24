@@ -76,9 +76,9 @@
             android:layout_marginEnd="21dp"
             android:layout_toEndOf="@+id/tv_docImg"
             android:gravity="center"
-            android:text=""
+            android:text="Dr. Mark Stevens"
             android:textColor="@color/black"
-            android:textSize="48sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <ImageView
@@ -98,12 +98,12 @@
             android:layout_height="40dp"
             android:layout_below="@+id/tv_docName"
             android:layout_alignEnd="@+id/tv_docName"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="22dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="27dp"
             android:fontFamily="sans-serif-light"
 
             android:gravity="center"
-            android:text=""
+            android:text="Cardiologist"
             android:textColor="@color/black"
             android:textSize="24dp" />
     </RelativeLayout>
@@ -237,14 +237,16 @@
 
         <TextView
             android:id="@+id/tv_about"
-            android:layout_width="371dp"
+            android:layout_width="wrap_content"
             android:layout_height="108dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="26dp"
+            android:text="MBBS, Ph.D., Fellow, International College of Surgeons.\n\nHead of Department of Neurosurgery
+"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -296,6 +298,7 @@
                     android:id="@+id/tv_time"
                     android:layout_width="match_parent"
                     android:layout_height="32dp"
+                    android:text="9:00 AM - 5:00 PM"
                     android:textSize="22dp"
                     android:textStyle="bold" />
             </LinearLayout>
