@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -25,11 +26,13 @@ public class ScheduleActivity extends AppCompatActivity {
 
     LinearLayout homeView, reportView, notificationView;
     LinearLayout dr1, dr2, dr3;
+    LinearLayout dr_appointment1, dr_appointment2,dr_appointment3;
     TextView textView_dr1, textView_spec1, textView_time1;
     TextView textView_dr2, textView_spec2, textView_time2;
     TextView textView_dr3, textView_spec3, textView_time3;
     LinearLayout[] linearLayoutArray = new LinearLayout[10];
     String targetDay;
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -68,6 +71,41 @@ public class ScheduleActivity extends AppCompatActivity {
         dr1 = findViewById(R.id.dr1);
         dr2 = findViewById(R.id.dr2);
         dr3 = findViewById(R.id.dr3);
+
+        dr_appointment1 = findViewById(R.id.appointments);
+        dr_appointment2 = findViewById(R.id.appointments1);
+        dr_appointment3 = findViewById(R.id.appointments2);
+
+        // On Click to go to doctor details:
+        dr_appointment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("DoctorName", "d1");
+                startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
+            }
+        });
+
+        dr_appointment2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("DoctorName", "d2");
+                startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
+            }
+        });
+
+        dr_appointment3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putString("DoctorName", "d3");
+                startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
+            }
+        });
 
         // text views related to the doctor's schedule
         textView_dr1 = findViewById(R.id.textView_drName1);
