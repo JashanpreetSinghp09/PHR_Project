@@ -36,18 +36,19 @@
             android:textSize="34sp" />
     </RelativeLayout>
 
+
     <RelativeLayout
 
 
         android:id="@+id/rectangle_1"
         android:layout_width="380dp"
         android:layout_height="130dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="128dp"
         android:background="@drawable/rectangle_1"
         android:backgroundTint="@color/white"
         android:elevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rectangle_2">
 
@@ -58,12 +59,12 @@
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="21dp"
-            android:textStyle="bold"
             android:layout_toEndOf="@+id/tv_docImg"
             android:gravity="center"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="48sp" />
+            android:textSize="48sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/tv_docImg"
@@ -86,32 +87,57 @@
             android:layout_marginEnd="22dp"
             android:fontFamily="sans-serif-light"
 
-            android:text=""
-            android:textSize="24dp"
             android:gravity="center"
-            android:textColor="@color/black" />
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="24dp" />
     </RelativeLayout>
 
-
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+    <LinearLayout
+        android:id="@+id/linearLayout9"
         android:layout_width="375dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_height="127dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_1" />
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_1"
+        app:layout_constraintVertical_bias="0.777">
+
+        <View
+            android:id="@+id/rectangle_details"
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:background="@drawable/rectangle_details" />
+
+        <View
+            android:id="@+id/rectangle_details1"
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/rectangle_details" />
+
+        <View
+            android:id="@+id/rectangle_details2"
+            android:layout_width="106dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/rectangle_details" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="376dp"
         android:layout_height="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
 
         <TextView
             android:id="@+id/textView30"
