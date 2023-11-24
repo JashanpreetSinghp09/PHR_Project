@@ -48,6 +48,7 @@
             android:text="Details"
             android:textColor="@color/white"
             android:textSize="28sp" />
+
     </RelativeLayout>
 
 
@@ -120,25 +121,95 @@
         app:layout_constraintTop_toBottomOf="@+id/rectangle_1"
         app:layout_constraintVertical_bias="0.777">
 
-        <View
+        <LinearLayout
             android:id="@+id/rectangle_details"
             android:layout_width="106dp"
             android:layout_height="100dp"
-            android:background="@drawable/rectangle_details" />
+            android:background="@drawable/rectangle_details"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <View
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="81dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25sp"
+                android:gravity="center"
+                android:text="Patients" />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="20+"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:id="@+id/rectangle_details1"
             android:layout_width="106dp"
             android:layout_height="100dp"
             android:layout_marginLeft="12dp"
-            android:background="@drawable/rectangle_details" />
+            android:background="@drawable/rectangle_details"
+            android:gravity="center_horizontal"
 
-        <View
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25sp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Experience" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="10 Yrs"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/rectangle_details2"
             android:layout_width="106dp"
             android:layout_height="100dp"
             android:layout_marginLeft="12dp"
-            android:background="@drawable/rectangle_details" />
+            android:background="@drawable/rectangle_details"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25sp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="Rating" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="4.50"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
