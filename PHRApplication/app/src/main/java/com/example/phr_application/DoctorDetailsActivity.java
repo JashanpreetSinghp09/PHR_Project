@@ -31,10 +31,11 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         drAvailability = findViewById(R.id.tv_time);
 
         sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
-        System.out.println(sharedPreferences.getString("DoctorName", ""));
+        String pr = sharedPreferences.getString("DoctorName", "");
+        System.out.println(pr);
         //Initializing the Firebase realtime database
         FirebaseApp.initializeApp(DoctorDetailsActivity.this);
-//        setupDoctorDetails(sharedPreferences.getString("DoctorName", ""));
+        setupDoctorDetails(sharedPreferences.getString("DoctorName", ""));
 
 
     }
@@ -50,9 +51,6 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
 
                     drName.setText(dataSnapshot.child("name").getValue(String.class));
-                    String name = dataSnapshot.child("name").getValue(String.class);
-//                    Toast.makeText(DoctorDetailsActivity.this, name, Toast.LENGTH_LONG).show();
-//                    System.out.println(name);
                     drSpecialty.setText(dataSnapshot.child("specialty").getValue(String.class));
                     drAvailability.setText(dataSnapshot.child("time").getValue(String.class));
                     drAboutSection.setText(dataSnapshot.child("about").getValue(String.class));

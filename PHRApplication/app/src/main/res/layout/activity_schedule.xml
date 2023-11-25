@@ -584,7 +584,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/appointments"
+                android:id="@+id/appointments3"
                 android:layout_width="match_parent"
                 android:layout_height="112.45dp"
                 android:background="@drawable/appointments3"

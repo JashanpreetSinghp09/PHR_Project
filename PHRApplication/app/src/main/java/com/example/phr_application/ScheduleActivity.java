@@ -72,17 +72,20 @@ public class ScheduleActivity extends AppCompatActivity {
         dr2 = findViewById(R.id.dr2);
         dr3 = findViewById(R.id.dr3);
 
-        dr_appointment1 = findViewById(R.id.appointments);
-        dr_appointment2 = findViewById(R.id.appointments1);
-        dr_appointment3 = findViewById(R.id.appointments2);
+        dr_appointment1 = findViewById(R.id.appointments1);
+        dr_appointment2 = findViewById(R.id.appointments2);
+        dr_appointment3 = findViewById(R.id.appointments3);
+
+        sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         // On Click to go to doctor details:
         dr_appointment1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 editor.putString("DoctorName", "d1");
+                editor.apply();
                 startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
             }
         });
@@ -90,9 +93,9 @@ public class ScheduleActivity extends AppCompatActivity {
         dr_appointment2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 editor.putString("DoctorName", "d2");
+                editor.apply();
                 startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
             }
         });
@@ -100,9 +103,9 @@ public class ScheduleActivity extends AppCompatActivity {
         dr_appointment3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sharedPreferences = getSharedPreferences("Details", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 editor.putString("DoctorName", "d3");
+                editor.apply();
                 startActivity(new Intent(ScheduleActivity.this, DoctorDetailsActivity.class));
             }
         });
