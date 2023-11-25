@@ -82,6 +82,5 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                 System.out.println("Error: " + databaseError.getMessage());
             }
         });
-
     }
 }

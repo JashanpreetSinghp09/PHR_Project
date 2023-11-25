@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -42,15 +49,13 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         sharedPreferences = getSharedPreferences("WalletPreferences", MODE_PRIVATE);
-
-        fullName.setText(sharedPreferences.getString("fullName", ""));
-
         emailId = sharedPreferences.getString("email", "");
 
         if (emailId.endsWith("clinics.ca")) {
             patient.setVisibility(View.VISIBLE);
-            email.setText("Doctor");
+            setupDoctorProfile(emailId);
         } else {
+            fullName.setText(sharedPreferences.getString("fullName", ""));
             patient.setVisibility(View.INVISIBLE);
             email.setText(emailId);
         }
@@ -88,7 +93,30 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void setupDoctorProfile(String doctorEmail){
 
+        // Reference to the "doctors" node in the Firebase database
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("doctors");
+        Query query = databaseReference.orderByChild("email").equalTo(doctorEmail);
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+
+                        fullName.setText(userSnapshot.child("name").getValue(String.class));
+                        email.setText(userSnapshot.child("specialty").getValue(String.class));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Error: " + databaseError.getMessage());
+            }
+        });
     }
 }
