@@ -76,7 +76,6 @@
             android:layout_marginEnd="21dp"
             android:layout_toEndOf="@+id/tv_docImg"
             android:gravity="center"
-            android:text="Dr. Mark Stevens"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -103,7 +102,6 @@
             android:fontFamily="sans-serif-light"
 
             android:gravity="center"
-            android:text="Cardiologist"
             android:textColor="@color/black"
             android:textSize="24dp" />
     </RelativeLayout>
@@ -138,13 +136,12 @@
                 android:text="Patients" />
 
             <TextView
-                android:id="@+id/textView34"
+                android:id="@+id/tv_noOfPatients"
                 android:layout_width="76dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="20+"
                 android:textStyle="bold" />
 
 
@@ -172,13 +169,12 @@
                 android:text="Experience" />
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/tv_experience"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="10 Yrs"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -201,13 +197,12 @@
                 android:text="Rating" />
 
             <TextView
-                android:id="@+id/textView40"
+                android:id="@+id/tv_rating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="4.50"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
@@ -237,12 +232,10 @@
 
         <TextView
             android:id="@+id/tv_about"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="108dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="sans-serif-light"
-            android:text="MBBS, Ph.D., Fellow, International College of Surgeons.\n\nHead of Department of Neurosurgery
-"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
